@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PetLocator</string>
+    <string name="inbox_text">View inbox</string>
+    <string-array name="menu_options">
+        <item>Home page</item>
+        <item>Sign out</item>
+    </string-array>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
 </resources>

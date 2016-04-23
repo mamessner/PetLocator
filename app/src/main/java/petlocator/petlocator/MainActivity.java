@@ -4,9 +4,16 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -15,6 +22,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private String[] menuOptions;
+    private DrawerLayout drawerLayout;
+    private ListView drawerList;
+    private ActionBarDrawerToggle drawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +37,40 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
         setSupportActionBar(actionBar);
+
+        /* The entire section below involving menus and action bars can (and should) be used
+           in all activities. */
+        menuOptions = getResources().getStringArray(R.array.menu_options);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerList = (ListView) findViewById(R.id.left_drawer);
+        drawerList.setAdapter(new ArrayAdapter<String>(this,
+                R.layout.drawer_list_item, menuOptions));
+        drawerList.setOnItemClickListener(new DrawerItemClickListener());
+        drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, actionBar,
+                R.string.drawer_open, R.string.drawer_close) {
+
+            /** Called once the drawer is closed. */
+            public void onDrawerClosed(View view) {
+                super.onDrawerClosed(view);
+                getSupportActionBar().setTitle(getTitle());
+            }
+
+            /** Called when the drawer is opened. */
+            public void onDrawerOpened(View view) {
+                super.onDrawerOpened(view);
+                getSupportActionBar().setTitle(getTitle());
+            }
+        };
+        drawerLayout.addDrawerListener(drawerToggle);
+
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -40,4 +84,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             // TODO: do something
         }
     }
+
+    /* The click listener for ListView in the navigation drawer. */
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+           selectItem(position);
+        }
+    }
+
+    private void selectItem(int position) {
+        // TODO: do something
+    }
+
 }

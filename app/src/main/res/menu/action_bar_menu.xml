@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- View inbox, should appear as action button if possible -->
+    <item
+        android:id="@+id/action_inbox"
+        android:icon="@drawable/inbox"
+        android:title="@string/inbox_text"
+        app:showAsAction="always"/>
+</menu>
+
+    <!-- Settings, should always be in the overflow -->
+<!--<item android:id="@+id/action_settings"-->
+<!--android:title="Settings"-->
+<!--app:showAsAction="never"/>-->
