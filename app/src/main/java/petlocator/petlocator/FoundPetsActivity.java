@@ -24,6 +24,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * This should no longer be used since HomePage is now tabbed.
+ */
 public class FoundPetsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private String[] menuOptions;
