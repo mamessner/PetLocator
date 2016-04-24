@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TableRow;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -31,6 +32,8 @@ public class FoundPetsActivity extends AppCompatActivity implements OnMapReadyCa
     private ActionBarDrawerToggle drawerToggle;
     private Button lostButton;
     private Button foundButton;
+    private TableRow ikoRow;
+    private TableRow cinnamonRow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +82,29 @@ public class FoundPetsActivity extends AppCompatActivity implements OnMapReadyCa
                 foundButton.setPressed(false);
                 Intent foundPetsIntent = new Intent(FoundPetsActivity.this, MainActivity.class);
                 startActivity(foundPetsIntent);
+                return true;
+            }
+        });
+
+        // Set up results list
+        // Set up results list
+        ikoRow = (TableRow) findViewById(R.id.row_iko);
+        cinnamonRow = (TableRow) findViewById(R.id.row_cinnamon);
+        ikoRow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent ikoIntent = new Intent(FoundPetsActivity.this, ViewFoundReport.class);
+                // TODO: log something Iko-specific
+                startActivity(ikoIntent);
+                return true;
+            }
+        });
+        cinnamonRow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO: log something Cinnamon-specific
+                Intent fidoIntent = new Intent(FoundPetsActivity.this, ViewFoundReport.class);
+                startActivity(fidoIntent);
                 return true;
             }
         });

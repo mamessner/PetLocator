@@ -84,7 +84,6 @@
                     android:padding="3dp"
                     android:gravity="right"/>
             </TableRow>
-
         </TableLayout>
 
     </RelativeLayout>

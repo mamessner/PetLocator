@@ -48,6 +48,10 @@
         <activity
             android:name=".ViewLostReport"
             android:label="@string/title_activity_view_lost_report"
+            android:theme="@style/LightNoActionBar" />
+        <activity
+            android:name=".ViewFoundReport"
+            android:label="@string/title_activity_view_found_report"
             android:theme="@style/LightNoActionBar"></activity>
     </application>
 

@@ -26,7 +26,7 @@
             android:id="@+id/map"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/lost_button"
             android:layout_centerHorizontal="true" />
 
         <Button
@@ -48,6 +48,43 @@
             android:layout_below="@+id/action_bar"
             android:layout_alignEnd="@+id/map"
             android:layout_marginEnd="29dp" />
+
+        <TableLayout
+            android:id="@+id/lost_results"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/map"
+            android:layout_alignParentStart="true"
+            android:stretchColumns="1">
+            <TableRow
+                android:id="@+id/row_iko">
+                <TextView
+                    android:text="Iko"
+                    android:padding="3dp"/>
+                <TextView
+                    android:text="Black lab"
+                    android:padding="3dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:text="1.17 mi"
+                    android:padding="3dp"
+                    android:gravity="right"/>
+            </TableRow>
+            <TableRow
+                android:id="@+id/row_cinnamon">
+                <TextView
+                    android:text="Cinnamon"
+                    android:padding="3dp"/>
+                <TextView
+                    android:text="Torbie"
+                    android:padding="3dp"
+                    android:gravity="center"/>
+                <TextView
+                    android:text="1.75 mi"
+                    android:padding="3dp"
+                    android:gravity="right"/>
+            </TableRow>
+        </TableLayout>
     </RelativeLayout>
 
     <ListView android:id="@+id/left_drawer"

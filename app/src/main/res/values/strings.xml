@@ -16,4 +16,5 @@
     <string name="title_activity_sign__up">Sign_Up</string>
     <string name="title_activity_found_pets">FoundPetsActivity</string>
     <string name="title_activity_view_lost_report">ViewLostReport</string>
+    <string name="title_activity_view_found_report">ViewFoundReport</string>
 </resources>
