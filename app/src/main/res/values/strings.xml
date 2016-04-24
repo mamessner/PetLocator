@@ -5,9 +5,15 @@
         <item>Home page</item>
         <item>Sign out</item>
     </string-array>
+    <string-array name="results">
+        <item>Fido</item>
+        <item>Boots</item>
+    </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
     <string name="title_activity_sign_in">SignIn</string>
     <string name="title_activity_default_">Default_Activity</string>
     <string name="title_activity_sign__up">Sign_Up</string>
+    <string name="title_activity_found_pets">FoundPetsActivity</string>
+    <string name="title_activity_view_lost_report">ViewLostReport</string>
 </resources>
