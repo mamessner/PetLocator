@@ -17,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TableRow;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private Button lostButton;
     private Button foundButton;
     private ListView lostResults;
+    TableRow fidoRow;
+    TableRow bootsRow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +89,26 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
         // Set up results list
+        fidoRow = (TableRow) findViewById(R.id.row_fido);
+        bootsRow = (TableRow) findViewById(R.id.row_boots);
+        fidoRow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent fidoIntent = new Intent(MainActivity.this, ViewLostReport.class);
+                // TODO: log something
+                startActivity(fidoIntent);
+                return true;
+            }
+        });
+        bootsRow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO: log something
+                Intent fidoIntent = new Intent(MainActivity.this, ViewLostReport.class);
+                startActivity(fidoIntent);
+                return true;
+            }
+        });
 
 
         // Set up map

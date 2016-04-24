@@ -24,12 +24,12 @@ public class ViewLostReport extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_view_lost_report);
         Toolbar actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("Lost Pets");
+        actionBar.setTitle("View Lost Report");
         setSupportActionBar(actionBar);
 
         /* The entire section below involving menus and action bars can (and should) be used
