@@ -31,7 +31,16 @@
         <activity
             android:name=".Default_Activity"
             android:label="@string/title_activity_default_"
-            android:theme="@style/LightNoActionBar"></activity>
+            android:theme="@style/LightNoActionBar" />
+        <activity
+            android:name=".Sign_Up"
+            android:label="@string/title_activity_sign__up"
+            android:parentActivityName=".Default_Activity"
+            android:theme="@style/LightNoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="petlocator.petlocator.Default_Activity" />
+        </activity>
     </application>
 
 </manifest>
