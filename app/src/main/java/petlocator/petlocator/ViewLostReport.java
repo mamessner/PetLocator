@@ -28,11 +28,12 @@ public class ViewLostReport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_found_report);
+
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("View Lost Pet Report");
+        actionBar.setTitle("Lost and Found Pets");
         setSupportActionBar(actionBar);
 
         /* The entire section below involving menus and action bars can (and should) be used
@@ -40,6 +41,22 @@ public class ViewLostReport extends AppCompatActivity {
         menuOptions = getResources().getStringArray(R.array.menu_options);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.left_drawer);
+        setUpNavigationView();
+        setUpDrawerLayout();
+    }
+
+    /* The click listener for ListView in the navigation drawer. */
+    private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectItem(position);
+        }
+    }
+
+    /**
+     * Set up the listener for the left drawer.
+     */
+    private void setUpNavigationView() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             // This method will trigger on item Click of navigation menu
@@ -56,9 +73,6 @@ public class ViewLostReport extends AppCompatActivity {
 
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()){
-
-
-                    //Replacing the main content with ContentFragment Which is our Inbox View;
                     case R.id.home:
                         // TODO: do something
                         return true;
@@ -83,7 +97,10 @@ public class ViewLostReport extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    /** Set up toggle for the drawer. */
+    private void setUpDrawerLayout() {
         // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
@@ -105,17 +122,7 @@ public class ViewLostReport extends AppCompatActivity {
 
         //Setting the actionbarToggle to drawer layout
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
-
-        //calling sync state is necessay or else your hamburger icon wont show up
         actionBarDrawerToggle.syncState();
-    }
-
-    /* The click listener for ListView in the navigation drawer. */
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
     }
 
     private void selectItem(int position) {

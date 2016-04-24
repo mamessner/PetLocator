@@ -25,6 +25,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * This is no longer the main activity/home page! See HomePage instead.
+ */
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private String[] menuOptions;
