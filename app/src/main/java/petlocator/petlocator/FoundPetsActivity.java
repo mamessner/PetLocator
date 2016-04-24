@@ -2,15 +2,14 @@ package petlocator.petlocator;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -25,7 +24,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class FoundPetsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private String[] menuOptions;
     private DrawerLayout drawerLayout;
@@ -33,19 +32,18 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ActionBarDrawerToggle drawerToggle;
     private Button lostButton;
     private Button foundButton;
-    private ListView lostResults;
-    TableRow fidoRow;
-    TableRow bootsRow;
+    private TableRow ikoRow;
+    private TableRow cinnamonRow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_found_pets);
         Toolbar actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("Lost Pets");
+        actionBar.setTitle("Found Pets");
         setSupportActionBar(actionBar);
 
         /* The entire section below involving menus and action bars can (and should) be used
@@ -76,50 +74,44 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Set up buttons
         lostButton = (Button) findViewById(R.id.lost_button);
         foundButton = (Button) findViewById(R.id.found_button);
-        lostButton.setPressed(true);
-        foundButton.setOnTouchListener(new View.OnTouchListener() {
+        foundButton.setPressed(true);
+        lostButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                foundButton.setPressed(true);
-                lostButton.setPressed(false);
-                Intent foundPetsIntent = new Intent(MainActivity.this, FoundPetsActivity.class);
+                lostButton.setPressed(true);
+                foundButton.setPressed(false);
+                Intent foundPetsIntent = new Intent(FoundPetsActivity.this, MainActivity.class);
                 startActivity(foundPetsIntent);
                 return true;
             }
         });
 
         // Set up results list
-        fidoRow = (TableRow) findViewById(R.id.row_fido);
-        bootsRow = (TableRow) findViewById(R.id.row_boots);
-        fidoRow.setOnTouchListener(new View.OnTouchListener() {
+        // Set up results list
+        ikoRow = (TableRow) findViewById(R.id.row_iko);
+        cinnamonRow = (TableRow) findViewById(R.id.row_cinnamon);
+        ikoRow.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                Intent fidoIntent = new Intent(MainActivity.this, ViewLostReport.class);
-                // TODO: log something
+                Intent ikoIntent = new Intent(FoundPetsActivity.this, ViewFoundReport.class);
+                // TODO: log something Iko-specific
+                startActivity(ikoIntent);
+                return true;
+            }
+        });
+        cinnamonRow.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                // TODO: log something Cinnamon-specific
+                Intent fidoIntent = new Intent(FoundPetsActivity.this, ViewFoundReport.class);
                 startActivity(fidoIntent);
                 return true;
             }
         });
-        bootsRow.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO: log something
-                Intent fidoIntent = new Intent(MainActivity.this, ViewLostReport.class);
-                startActivity(fidoIntent);
-                return true;
-            }
-        });
-
 
         // Set up map
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -138,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-           selectItem(position);
+            selectItem(position);
         }
     }
 

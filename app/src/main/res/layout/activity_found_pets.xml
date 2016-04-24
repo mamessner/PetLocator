@@ -57,35 +57,34 @@
             android:layout_alignParentStart="true"
             android:stretchColumns="1">
             <TableRow
-                android:id="@+id/row_fido">
+                android:id="@+id/row_iko">
                 <TextView
-                    android:text="Fido"
+                    android:text="Iko"
                     android:padding="3dp"/>
                 <TextView
-                    android:text="Greyhound"
+                    android:text="Black lab"
                     android:padding="3dp"
                     android:gravity="center"/>
                 <TextView
-                    android:text="0.1 mi"
+                    android:text="1.17 mi"
                     android:padding="3dp"
                     android:gravity="right"/>
             </TableRow>
             <TableRow
-                android:id="@+id/row_boots">
+                android:id="@+id/row_cinnamon">
                 <TextView
-                    android:text="Boots"
+                    android:text="Cinnamon"
                     android:padding="3dp"/>
                 <TextView
-                    android:text="Calico shorthair"
+                    android:text="Torbie"
                     android:padding="3dp"
                     android:gravity="center"/>
                 <TextView
-                    android:text="0.3 mi"
+                    android:text="1.75 mi"
                     android:padding="3dp"
                     android:gravity="right"/>
             </TableRow>
         </TableLayout>
-
     </RelativeLayout>
 
     <ListView android:id="@+id/left_drawer"
@@ -97,14 +96,3 @@
         android:dividerHeight="0dp"
         android:background="#111"/>
 </android.support.v4.widget.DrawerLayout>
-
-<!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--android:layout_width="fill_parent"-->
-<!--android:layout_height="fill_parent"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--android:fillViewport="true">-->
-
-    <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
-    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
-    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
-    <!--android:paddingTop="@dimen/activity_vertical_margin"-->
