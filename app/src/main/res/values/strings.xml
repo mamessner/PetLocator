@@ -7,4 +7,6 @@
     </string-array>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
+    <string name="title_activity_sign_in">SignIn</string>
+    <string name="title_activity_default_">Default_Activity</string>
 </resources>
