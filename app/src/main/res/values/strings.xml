@@ -17,4 +17,7 @@
     <string name="title_activity_found_pets">FoundPetsActivity</string>
     <string name="title_activity_view_lost_report">ViewLostReport</string>
     <string name="title_activity_view_found_report">ViewFoundReport</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
