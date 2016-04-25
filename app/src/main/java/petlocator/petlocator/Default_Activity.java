@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -30,7 +31,8 @@ public class Default_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayout());
-
+        //LOG TAG
+        String TAG = "CREATE TAG";
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
@@ -45,6 +47,7 @@ public class Default_Activity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.left_drawer);
         setUpNavigationView();
         setUpDrawerLayout();
+        Log.v(TAG, "On Create completed");
     }
 
     /**
@@ -65,6 +68,8 @@ public class Default_Activity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
+                //Add Tag for logging
+                String TAG = "MENU LOG";
 
                 //Checking if the item is in checked state or not, if not make it in checked state
                 if(menuItem.isChecked()) menuItem.setChecked(false);
@@ -76,34 +81,41 @@ public class Default_Activity extends AppCompatActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()){
                     case R.id.home:
+                        Log.v(TAG, "Home selected");
                         Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
                         Intent homeIntent = new Intent(Default_Activity.this, HomePage.class);
                         return true;
                     case R.id.profile:
+                        Log.v(TAG, "Profile selected");
                         Toast.makeText(getApplicationContext(), "Clicked profile", Toast.LENGTH_SHORT).show();
                         Intent profileIntent = new Intent(Default_Activity.this, UserProfile.class);
                         startActivity(profileIntent);
                         return true;
                     case R.id.add_missing:
+                        Log.v(TAG, "Add missing selected");
                         Toast.makeText(getApplicationContext(), "Clicked add missing", Toast.LENGTH_SHORT).show();
                         Intent reportLostIntent = new Intent(Default_Activity.this, ReportLostPet.class);
                         startActivity(reportLostIntent);
                         return true;
                     case R.id.add_found:
+                        Log.v(TAG, "Add Found selected");
                         Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
                         Intent reportFoundIntent = new Intent(Default_Activity.this, ReportLostPet.class);
                         startActivity(reportFoundIntent);
                         return true;
                     case R.id.nearby:
+                        Log.v(TAG,"Nearby selected");
                         Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
                         Intent nearbyIntent = new Intent(Default_Activity.this, NearbyPets.class);
                         startActivity(nearbyIntent);
                         return true;
                     case R.id.sign_out:
+                        Log.v(TAG, "Sign out selected");
                         // TODO: do something
                         Toast.makeText(getApplicationContext(), "Clicked sign out", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
+                        Log.v(TAG, "Default selected");
                         // TODO: do something
                         return false;
                 }
@@ -118,14 +130,18 @@ public class Default_Activity extends AppCompatActivity {
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
                 actionBar,R.string.drawer_open, R.string.drawer_close){
 
+            //Log Tag
+            String TAG = "Drawer Log";
             @Override
             public void onDrawerClosed(View drawerView) {
                 // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                Log.v(TAG, "Close drawer");
                 super.onDrawerClosed(drawerView);
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
+                Log.v(TAG, "Drawer opened");
                 // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
 
                 super.onDrawerOpened(drawerView);
