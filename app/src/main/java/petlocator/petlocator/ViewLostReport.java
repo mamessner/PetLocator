@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,6 +45,7 @@ public class ViewLostReport extends Default_Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_lost_report);
 
+        final String TAG = "VIEW LOST REPORT";
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
@@ -87,6 +89,7 @@ public class ViewLostReport extends Default_Activity {
         edit_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v(TAG, "Moving to Lost Report edit");
                 Intent reportLostPetIntent = new Intent(ViewLostReport.this, ReportLostPet.class);
                 ViewLostReport.this.startActivity(reportLostPetIntent);
             }
@@ -97,6 +100,7 @@ public class ViewLostReport extends Default_Activity {
             @Override
             public void onClick(View v) {
 
+                Log.v(TAG, "Opening alert");
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewLostReport.this);
 
 
@@ -111,14 +115,17 @@ public class ViewLostReport extends Default_Activity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, reroute to user profile
+                                Log.v(TAG, "Close approved");
                                 Intent userProfileIntent = new Intent(ViewLostReport.this, UserProfile.class);
                                 ViewLostReport.this.startActivity(userProfileIntent);
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, cancel the dialog and do nothing
+                                Log.v(TAG, "Close rejected");
                                 dialog.cancel();
                             }
                         });
