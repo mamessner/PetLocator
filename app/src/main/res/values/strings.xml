@@ -22,4 +22,5 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="title_activity_report_lost_pet">ReportLostPet</string>
+    <string name="title_activity_nearby_pets">NearbyPets</string>
 </resources>

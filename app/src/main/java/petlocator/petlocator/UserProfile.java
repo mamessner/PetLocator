@@ -86,6 +86,8 @@ public class UserProfile extends AppCompatActivity {
                     case R.id.nearby:
                         //TODO: do something
                         Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
+                        Intent nearbyIntent = new Intent(UserProfile.this, NearbyPets.class);
+                        startActivity(nearbyIntent);
                         return true;
                     case R.id.sign_out:
                         // TODO: do something

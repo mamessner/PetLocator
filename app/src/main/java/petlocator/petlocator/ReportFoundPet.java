@@ -26,7 +26,7 @@ public class ReportFoundPet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_report_found_pet);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
@@ -84,8 +84,9 @@ public class ReportFoundPet extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.nearby:
-                        //TODO: do something
                         Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
+                        Intent nearbyIntent = new Intent(ReportFoundPet.this, NearbyPets.class);
+                        startActivity(nearbyIntent);
                         return true;
                     case R.id.sign_out:
                         // TODO: do something
