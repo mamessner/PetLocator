@@ -29,6 +29,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.maps.CameraUpdate;
@@ -144,22 +145,31 @@ public class HomePage extends AppCompatActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()){
                     case R.id.home:
-                        // TODO: do something
+                        // no need to do anything because we're already on the home page
+                        Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.profile:
-                        //TODO: do something
+                        Toast.makeText(getApplicationContext(), "Clicked profile", Toast.LENGTH_SHORT).show();
+                        Intent profileIntent = new Intent(HomePage.this, UserProfile.class);
+                        startActivity(profileIntent);
                         return true;
                     case R.id.add_missing:
-                        // TODO: do something
+                        Toast.makeText(getApplicationContext(), "Clicked add missing", Toast.LENGTH_SHORT).show();
+                        Intent reportLostIntent = new Intent(HomePage.this, ReportLostPet.class);
+                        startActivity(reportLostIntent);
                         return true;
                     case R.id.add_found:
-                        // TODO: do something
+                        Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
+                        Intent reportFoundIntent = new Intent(HomePage.this, ReportLostPet.class);
+                        startActivity(reportFoundIntent);
                         return true;
                     case R.id.nearby:
                         //TODO: do something
+                        Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
                         return true;
                     case R.id.sign_out:
                         // TODO: do something
+                        Toast.makeText(getApplicationContext(), "Clicked sign out", Toast.LENGTH_SHORT).show();
                         return true;
                     default:
                         // TODO: do something
@@ -228,7 +238,6 @@ public class HomePage extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
             TableRow firstRow = (TableRow) rootView.findViewById(R.id.row1);
             TableRow secondRow = (TableRow) rootView.findViewById(R.id.row2);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             TextView row1Col1 = (TextView) rootView.findViewById(R.id.row1_col1);
             TextView row1Col2 = (TextView) rootView.findViewById(R.id.row1_col2);
             TextView row1Col3 = (TextView) rootView.findViewById(R.id.row1_col3);
@@ -238,7 +247,6 @@ public class HomePage extends AppCompatActivity {
 //            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1:
-                    textView.setText("Lost pets");
                     row1Col1.setText("Fido");
                     row1Col2.setText("Greyhound");
                     row1Col3.setText("0.1 mi");
@@ -265,7 +273,6 @@ public class HomePage extends AppCompatActivity {
                     });
                     break;
                 case 2:
-                    textView.setText("Found pets");
                     row1Col1.setText("Iko");
                     row1Col2.setText("Black lab");
                     row1Col3.setText("1.17 mi");
@@ -275,9 +282,9 @@ public class HomePage extends AppCompatActivity {
                     firstRow.setOnTouchListener(new View.OnTouchListener() {
                         @Override
                         public boolean onTouch(View v, MotionEvent event) {
-                            Intent fidoIntent = new Intent(getActivity(), ViewFoundReport.class);
+                            Intent firstIntent = new Intent(getActivity(), ViewFoundReport.class);
                             // TODO: log something
-                            startActivity(fidoIntent);
+                            startActivity(firstIntent);
                             return true;
                         }
                     });
@@ -285,8 +292,8 @@ public class HomePage extends AppCompatActivity {
                         @Override
                         public boolean onTouch(View v, MotionEvent event) {
                             // TODO: log something
-                            Intent fidoIntent = new Intent(getActivity(), ViewFoundReport.class);
-                            startActivity(fidoIntent);
+                            Intent firstIntent = new Intent(getActivity(), ViewFoundReport.class);
+                            startActivity(firstIntent);
                             return true;
                         }
                     });

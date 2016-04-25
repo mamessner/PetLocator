@@ -16,14 +16,12 @@
         <item
             android:id="@+id/add_missing"
             android:checked="false"
-            android:title="Add a Missing Report" />
+            android:title="Report a Lost Pet" />
 
         <item
             android:id="@+id/add_found"
             android:checked="false"
-            android:title="Add a Found Report" />
-
-
+            android:title="Report a Found Pet" />
         <item
             android:id="@+id/nearby"
             android:checked="false"
