@@ -39,7 +39,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
 
-public class HomePage extends AppCompatActivity {
+public class NearbyPets extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -64,13 +64,13 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_nearby_pets);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("Lost and Found Pets");
+        actionBar.setTitle("Nearby Pets");
         setSupportActionBar(actionBar);
 
         /* The entire section below involving menus and action bars can (and should) be used
@@ -145,28 +145,28 @@ public class HomePage extends AppCompatActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()){
                     case R.id.home:
-                        // no need to do anything because we're already on the home page
                         Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
+                        Intent homeIntent = new Intent(NearbyPets.this, HomePage.class);
+                        startActivity(homeIntent);
                         return true;
                     case R.id.profile:
                         Toast.makeText(getApplicationContext(), "Clicked profile", Toast.LENGTH_SHORT).show();
-                        Intent profileIntent = new Intent(HomePage.this, UserProfile.class);
+                        Intent profileIntent = new Intent(NearbyPets.this, UserProfile.class);
                         startActivity(profileIntent);
                         return true;
                     case R.id.add_missing:
                         Toast.makeText(getApplicationContext(), "Clicked add missing", Toast.LENGTH_SHORT).show();
-                        Intent reportLostIntent = new Intent(HomePage.this, ReportLostPet.class);
+                        Intent reportLostIntent = new Intent(NearbyPets.this, ReportLostPet.class);
                         startActivity(reportLostIntent);
                         return true;
                     case R.id.add_found:
                         Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
-                        Intent reportFoundIntent = new Intent(HomePage.this, ReportLostPet.class);
+                        Intent reportFoundIntent = new Intent(NearbyPets.this, ReportFoundPet.class);
                         startActivity(reportFoundIntent);
                         return true;
                     case R.id.nearby:
+                        // no need to do anything here
                         Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
-                        Intent nearbyIntent = new Intent(HomePage.this, NearbyPets.class);
-                        startActivity(nearbyIntent);
                         return true;
                     case R.id.sign_out:
                         // TODO: do something
@@ -215,8 +215,6 @@ public class HomePage extends AppCompatActivity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
-        private MapView mapView;
-        private GoogleMap map;
 
         public PlaceholderFragment() {
         }
@@ -301,45 +299,7 @@ public class HomePage extends AppCompatActivity {
                 default:
                     break;
             }
-
-            // Gets the MapView from the XML layout and creates it
-            mapView = (MapView) rootView.findViewById(R.id.map);
-            mapView.onCreate(savedInstanceState);
-
-            // Gets to GoogleMap from the MapView and does initialization stuff
-            map = mapView.getMap();
-            map.getUiSettings().setMyLocationButtonEnabled(false);
-            try {
-                map.setMyLocationEnabled(true);
-            } catch (SecurityException e) {
-                // TODO: do something
-            }
-
-            // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
-            MapsInitializer.initialize(this.getActivity());
-
-            // Updates the location and zoom of the MapView
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
-            map.animateCamera(cameraUpdate);
             return rootView;
-        }
-
-        @Override
-        public void onResume() {
-            mapView.onResume();
-            super.onResume();
-        }
-
-        @Override
-        public void onDestroy() {
-            super.onDestroy();
-            mapView.onDestroy();
-        }
-
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapView.onLowMemory();
         }
     }
 
