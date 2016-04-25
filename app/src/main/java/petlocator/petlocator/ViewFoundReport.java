@@ -14,16 +14,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class ViewFoundReport extends AppCompatActivity {
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.model.LatLng;
+
+public class ViewFoundReport extends Default_Activity{
 
     private String[] menuOptions;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
     private Toolbar actionBar;
+    private ImageView imageView;
+    private MapView mapView;
+    private GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +55,25 @@ public class ViewFoundReport extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.left_drawer);
         setUpNavigationView();
         setUpDrawerLayout();
+        // Gets the MapView from the XML layout and creates it
+        mapView = (MapView) findViewById(R.id.map);
+        mapView.onCreate(savedInstanceState);
+
+        // Gets to GoogleMap from the MapView and does initialization stuff
+        map = mapView.getMap();
+        map.getUiSettings().setMyLocationButtonEnabled(false);
+        try {
+            map.setMyLocationEnabled(true);
+        } catch (SecurityException e) {
+            // TODO: do something
+        }
+
+        // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
+        MapsInitializer.initialize(ViewFoundReport.this);
+
+        // Updates the location and zoom of the MapView
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
+        map.animateCamera(cameraUpdate);
     }
 
     /**

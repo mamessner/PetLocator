@@ -28,19 +28,21 @@
                 android:background="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/LightNoActionBar.PopupOverlay">
+
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
-        <include layout="@layout/content_view_found_report" />
+
     </android.support.design.widget.CoordinatorLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/left_drawer"
         app:menu="@menu/drawer"
+        app:headerLayout="@layout/drawer_header"
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"
-        android:background="#111"/>
+        android:background="@color/app_white"/>
 </android.support.v4.widget.DrawerLayout>
