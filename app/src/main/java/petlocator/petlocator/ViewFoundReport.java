@@ -27,11 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class ViewFoundReport extends Default_Activity{
 
-    private String[] menuOptions;
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle drawerToggle;
-    private Toolbar actionBar;
+
     private ImageView imageView;
     private MapView mapView;
     private GoogleMap map;
@@ -53,8 +49,6 @@ public class ViewFoundReport extends Default_Activity{
         menuOptions = getResources().getStringArray(R.array.menu_options);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.left_drawer);
-        setUpNavigationView();
-        setUpDrawerLayout();
         // Gets the MapView from the XML layout and creates it
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
@@ -77,87 +71,12 @@ public class ViewFoundReport extends Default_Activity{
     }
 
     /**
-     * Set up the listener for the left drawer.
+     * Override this in each subclass and replace with appropriate layout.
+     * @return the activity's layout
      */
-    private void setUpNavigationView() {
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-
-            // This method will trigger on item Click of navigation menu
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-
-
-                //Checking if the item is in checked state or not, if not make it in checked state
-                if(menuItem.isChecked()) menuItem.setChecked(false);
-                else menuItem.setChecked(true);
-
-                //Closing drawer on item click
-                drawerLayout.closeDrawers();
-
-                //Check to see which item was being clicked and perform appropriate action
-                switch (menuItem.getItemId()){
-                    case R.id.home:
-                        // TODO: do something
-                        return true;
-                    case R.id.profile:
-                        //TODO: do something
-                        return true;
-                    case R.id.add_missing:
-                        // TODO: do something
-                        return true;
-                    case R.id.add_found:
-                        // TODO: do something
-                        return true;
-                    case R.id.nearby:
-                        //TODO: do something
-                        return true;
-                    case R.id.sign_out:
-                        // TODO: do something
-                        return true;
-                    default:
-                        // TODO: do something
-                        return false;
-                }
-            }
-        });
-    }
-
-    /** Set up toggle for the drawer. */
-    private void setUpDrawerLayout() {
-        // Initializing Drawer Layout and ActionBarToggle
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-                actionBar,R.string.drawer_open, R.string.drawer_close){
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
-                super.onDrawerClosed(drawerView);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
-
-                super.onDrawerOpened(drawerView);
-            }
-        };
-
-        //Setting the actionbarToggle to drawer layout
-        drawerLayout.setDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-    }
-
-    /* The click listener for ListView in the navigation drawer. */
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
-
-    private void selectItem(int position) {
-        // TODO: do something
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_view_found_report;
     }
 
 }
