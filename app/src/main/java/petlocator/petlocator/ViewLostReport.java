@@ -1,5 +1,7 @@
 package petlocator.petlocator;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,12 +10,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -72,6 +76,62 @@ public class ViewLostReport extends Default_Activity {
         // Updates the location and zoom of the MapView
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
         map.animateCamera(cameraUpdate);
+
+        //Get the edit and delete buttons
+        final Button edit_Button = (Button) findViewById(R.id.button);
+        final Button delete_Button = (Button) findViewById(R.id.button2);
+        assert edit_Button != null;
+        assert delete_Button != null;
+
+        //Set the edit button to reroute to the make report form on click
+        edit_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent reportLostPetIntent = new Intent(ViewLostReport.this, ReportLostPet.class);
+                ViewLostReport.this.startActivity(reportLostPetIntent);
+            }
+        });
+
+        //Set the delete button to spawn an alert box on click
+        delete_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewLostReport.this);
+
+
+                //set title
+                alertDialogBuilder.setTitle("Delete this report?");
+
+                //set dialog message
+                alertDialogBuilder
+                        .setMessage("Click yes to delete")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //if this button is clicked, reroute to user profile
+                                Intent userProfileIntent = new Intent(ViewLostReport.this, UserProfile.class);
+                                ViewLostReport.this.startActivity(userProfileIntent);
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //if this button is clicked, cancel the dialog and do nothing
+                                dialog.cancel();
+                            }
+                        });
+
+                //create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                //show it
+                alertDialog.show();
+            }
+
+        });
+
     }
 
 
