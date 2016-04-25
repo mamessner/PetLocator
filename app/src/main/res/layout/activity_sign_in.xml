@@ -77,9 +77,17 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Pet Locator"
             android:id="@+id/textView3"
-            android:layout_marginTop="57dp"
+            android:layout_marginTop="58dp"
             android:layout_below="@+id/action_bar"
-            android:layout_alignEnd="@+id/sign_in_button"/>
+            android:layout_toEndOf="@+id/textView" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/logo"
+            android:layout_below="@+id/textView3"
+            android:layout_alignEnd="@+id/textView3" />
 
     </RelativeLayout>
 
