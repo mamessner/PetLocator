@@ -16,8 +16,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class UserProfile extends AppCompatActivity {
 
+public class Inbox extends AppCompatActivity {
+
+    // TODO: This class will need to be more like HomePage and NearbyPets in that it should be tabbed.
+    // A good start would be to copy HomePage -> Inbox, activity_home_page -> activity_inbox, and
+    // fragment_home_page -> fragment_inbox.
     private String[] menuOptions;
     public DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -27,13 +31,13 @@ public class UserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_inbox);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("My Profile");
+        actionBar.setTitle("My Inbox");
         setSupportActionBar(actionBar);
 
         /* The entire section below involving menus and action bars can (and should) be used
@@ -66,28 +70,27 @@ public class UserProfile extends AppCompatActivity {
                 //Check to see which item was being clicked and perform appropriate action
                 switch (menuItem.getItemId()){
                     case R.id.home:
-                        Intent homeIntent = new Intent(UserProfile.this, HomePage.class);
+                        Intent homeIntent = new Intent(Inbox.this, HomePage.class);
                         Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
                         startActivity(homeIntent);
                         return true;
                     case R.id.profile:
-                        // no need to do anything because we're already here
                         Toast.makeText(getApplicationContext(), "Clicked profile", Toast.LENGTH_SHORT).show();
+                        Intent profileIntent = new Intent(Inbox.this, UserProfile.class);
                         return true;
                     case R.id.add_missing:
                         Toast.makeText(getApplicationContext(), "Clicked add missing", Toast.LENGTH_SHORT).show();
-                        Intent reportLostIntent = new Intent(UserProfile.this, ReportLostPet.class);
+                        Intent reportLostIntent = new Intent(Inbox.this, ReportLostPet.class);
                         startActivity(reportLostIntent);
                         return true;
                     case R.id.add_found:
                         Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
-                        Intent reportFoundIntent = new Intent(UserProfile.this, ReportFoundPet.class);
+                        Intent reportFoundIntent = new Intent(Inbox.this, ReportFoundPet.class);
                         startActivity(reportFoundIntent);
                         return true;
                     case R.id.nearby:
-                        //TODO: do something
                         Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
-                        Intent nearbyIntent = new Intent(UserProfile.this, NearbyPets.class);
+                        Intent nearbyIntent = new Intent(Inbox.this, NearbyPets.class);
                         startActivity(nearbyIntent);
                         return true;
                     case R.id.sign_out:
@@ -147,8 +150,8 @@ public class UserProfile extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_inbox) {
-            Intent inboxIntent = new Intent (this, Inbox.class);
-            startActivity(inboxIntent);
+            // don't need to do anything when already in inbox
+            Toast.makeText(getApplicationContext(), "Clicked inbox", Toast.LENGTH_SHORT).show();
             return true;
         }
 

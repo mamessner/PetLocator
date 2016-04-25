@@ -104,7 +104,7 @@ public class NearbyPets extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_home_page, menu);
+        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
         return true;
     }
 
@@ -117,6 +117,11 @@ public class NearbyPets extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_inbox) {
+            Intent inboxIntent = new Intent (this, Inbox.class);
+            startActivity(inboxIntent);
             return true;
         }
 
