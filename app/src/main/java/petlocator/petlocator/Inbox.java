@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -55,6 +57,8 @@ public class Inbox extends Default_Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        actionBar = (Toolbar) findViewById(R.id.action_bar);
+        actionBar.setTitle("Inbox");
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -138,110 +142,30 @@ public class Inbox extends Default_Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
-//                       TableRow firstRow = (TableRow) rootView.findViewById(R.id.row1);
-//            TableRow secondRow = (TableRow) rootView.findViewById(R.id.row2);
-//            TextView row1Col1 = (TextView) rootView.findViewById(R.id.row1_col1);
-//            TextView row1Col2 = (TextView) rootView.findViewById(R.id.row1_col2);
-//            TextView row1Col3 = (TextView) rootView.findViewById(R.id.row1_col3);
-//            TextView row2Col1 = (TextView) rootView.findViewById(R.id.row2_col1);
-//            TextView row2Col2 = (TextView) rootView.findViewById(R.id.row2_col2);
-//            TextView row2Col3 = (TextView) rootView.findViewById(R.id.row2_col3);
-////            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-//            switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
-//                case 1:
-//                    row1Col1.setText("Fido");
-//                    row1Col2.setText("Greyhound");
-//                    row1Col3.setText("0.1 mi");
-//                    row2Col1.setText("Boots");
-//                    row2Col2.setText("Calico shorthair");
-//                    row2Col3.setText("0.3 mi");
-//                    firstRow.setOnTouchListener(new View.OnTouchListener() {
-//                        @Override
-//                        public boolean onTouch(View v, MotionEvent event) {
-//                            Intent fidoIntent = new Intent(getActivity(), ViewLostReport.class);
-//                            // TODO: log something
-//                            startActivity(fidoIntent);
-//                            return true;
-//                        }
-//                    });
-//                    secondRow.setOnTouchListener(new View.OnTouchListener() {
-//                        @Override
-//                        public boolean onTouch(View v, MotionEvent event) {
-//                            // TODO: log something
-//                            Intent fidoIntent = new Intent(getActivity(), ViewLostReport.class);
-//                            startActivity(fidoIntent);
-//                            return true;
-//                        }
-//                    });
-//                    break;
-//                case 2:
-//                    row1Col1.setText("Iko");
-//                    row1Col2.setText("Black lab");
-//                    row1Col3.setText("1.17 mi");
-//                    row2Col1.setText("Cinnamon");
-//                    row2Col2.setText("Torbie");
-//                    row2Col3.setText("1.75 mi");
-//                    firstRow.setOnTouchListener(new View.OnTouchListener() {
-//                        @Override
-//                        public boolean onTouch(View v, MotionEvent event) {
-//                            Intent firstIntent = new Intent(getActivity(), ViewFoundReport.class);
-//                            // TODO: log something
-//                            startActivity(firstIntent);
-//                            return true;
-//                        }
-//                    });
-//                    secondRow.setOnTouchListener(new View.OnTouchListener() {
-//                        @Override
-//                        public boolean onTouch(View v, MotionEvent event) {
-//                            // TODO: log something
-//                            Intent firstIntent = new Intent(getActivity(), ViewFoundReport.class);
-//                            startActivity(firstIntent);
-//                            return true;
-//                        }
-//                    });
-//                default:
-//                    break;
-//            }
+            TextView firstMessage = (TextView) rootView.findViewById(R.id.message1);
+            TextView secondMessage = (TextView) rootView.findViewById(R.id.message2);
+            TextView thirdMessage = (TextView) rootView.findViewById(R.id.message3);
+            ImageView firstImage = (ImageView) rootView.findViewById(R.id.image_user1);
+            ImageView secondImage = (ImageView) rootView.findViewById(R.id.image_user2);
+            ImageView thirdImage = (ImageView) rootView.findViewById(R.id.image_user3);
+            switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1: // Messages tab
+                    firstMessage.setVisibility(TextView.VISIBLE);
+                    secondMessage.setVisibility(TextView.VISIBLE);
+                    thirdMessage.setVisibility(TextView.VISIBLE);
+                    firstImage.setVisibility(TextView.VISIBLE);
+                    secondImage.setVisibility(TextView.VISIBLE);
+                    thirdImage.setVisibility(TextView.VISIBLE);
+                    break;
+                case 2: // Alerts tab
+                    // TODO: do something
+                    break;
+                default:
+                    break;
+            }
 
-//            // Gets the MapView from the XML layout and creates it
-//            mapView = (MapView) rootView.findViewById(R.id.map);
-//            mapView.onCreate(savedInstanceState);
-//
-//            // Gets to GoogleMap from the MapView and does initialization stuff
-//            map = mapView.getMap();
-//            map.getUiSettings().setMyLocationButtonEnabled(false);
-//            try {
-//                map.setMyLocationEnabled(true);
-//            } catch (SecurityException e) {
-//                // TODO: do something
-//            }
-//
-//            // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
-//            MapsInitializer.initialize(this.getActivity());
-//
-//            // Updates the location and zoom of the MapView
-//            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
-//            map.animateCamera(cameraUpdate);
             return rootView;
         }
-
-//        @Override
-//        public void onResume() {
-//            mapView.onResume();
-//            super.onResume();
-//        }
-//
-//        @Override
-//        public void onDestroy() {
-//            super.onDestroy();
-//            mapView.onDestroy();
-//        }
-//
-//        @Override
-//        public void onLowMemory() {
-//            super.onLowMemory();
-//            mapView.onLowMemory();
-//        }
     }
 
     /**
@@ -271,9 +195,9 @@ public class Inbox extends Default_Activity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "LOST PETS";
+                    return "MESSAGES";
                 case 1:
-                    return "FOUND PETS";
+                    return "ALERTS";
             }
             return null;
         }
