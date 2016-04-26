@@ -3,11 +3,15 @@ package petlocator.petlocator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Sign_Up extends Default_Activity {
 
@@ -16,8 +20,18 @@ public class Sign_Up extends Default_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__up);
+        /* The entire section below involving menus and action bars can (and should) be used
+           in all activities. */
+        menuOptions = getResources().getStringArray(R.array.menu_options);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.left_drawer);
+        setUpNavigationView();
+        setUpDrawerLayout();
         sign_Up_Button.setOnClickListener(new View.OnClickListener(){
+            @Override
             public void onClick(View v){
+                Toast.makeText(getApplicationContext(), "Clicked Sign Up", Toast.LENGTH_SHORT).show();
+                Log.v("Sign Up", "Sign up complete");
                 Intent signUpIntent = new Intent(Sign_Up.this, SignIn.class);
                 Sign_Up.this.startActivity(signUpIntent);
             }

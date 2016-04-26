@@ -32,7 +32,7 @@
         android:id="@+id/imageView3"
         android:layout_alignTop="@+id/textView12"
         android:layout_toStartOf="@+id/linearLayout"
-        android:src="@drawable/Dog_the_bounty_hunter"
+        android:src="@drawable/dog_the_bounty_hunter"
         android:layout_alignBottom="@+id/textView12" />
 
     <ImageView

@@ -61,7 +61,7 @@ public class Default_Activity extends AppCompatActivity {
     /**
      * Set up the listener for the left drawer.
      */
-    private void setUpNavigationView() {
+    protected void setUpNavigationView() {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
             // This method will trigger on item Click of navigation menu
@@ -124,7 +124,7 @@ public class Default_Activity extends AppCompatActivity {
     }
 
     /** Set up toggle for the drawer. */
-    private void setUpDrawerLayout() {
+    protected void setUpDrawerLayout() {
         // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,

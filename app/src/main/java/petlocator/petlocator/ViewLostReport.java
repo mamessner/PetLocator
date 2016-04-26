@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -89,6 +90,7 @@ public class ViewLostReport extends Default_Activity {
         edit_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Clicked Edit", Toast.LENGTH_SHORT).show();
                 Log.v(TAG, "Moving to Lost Report edit");
                 Intent reportLostPetIntent = new Intent(ViewLostReport.this, ReportLostPet.class);
                 ViewLostReport.this.startActivity(reportLostPetIntent);
@@ -101,6 +103,7 @@ public class ViewLostReport extends Default_Activity {
             public void onClick(View v) {
 
                 Log.v(TAG, "Opening alert");
+                Toast.makeText(getApplicationContext(), "Clicked close", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewLostReport.this);
 
 
@@ -116,6 +119,7 @@ public class ViewLostReport extends Default_Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, reroute to user profile
                                 Log.v(TAG, "Close approved");
+                                Toast.makeText(getApplicationContext(), "Close approved", Toast.LENGTH_SHORT).show();
                                 Intent userProfileIntent = new Intent(ViewLostReport.this, UserProfile.class);
                                 ViewLostReport.this.startActivity(userProfileIntent);
 
@@ -126,6 +130,7 @@ public class ViewLostReport extends Default_Activity {
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, cancel the dialog and do nothing
                                 Log.v(TAG, "Close rejected");
+                                Toast.makeText(getApplicationContext(), "Close rejected", Toast.LENGTH_SHORT).show();
                                 dialog.cancel();
                             }
                         });

@@ -84,6 +84,7 @@ public class ViewFoundReport extends Default_Activity{
         edit_Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Clicked edit", Toast.LENGTH_SHORT).show();
                 Log.v(TAG, "Moving to report edit");
                 Intent reportFoundPetIntent = new Intent(ViewFoundReport.this, ReportFoundPet.class);
                 ViewFoundReport.this.startActivity(reportFoundPetIntent);
@@ -96,6 +97,7 @@ public class ViewFoundReport extends Default_Activity{
             public void onClick(View v) {
 
                 Log.v(TAG, "Opening alert");
+                Toast.makeText(getApplicationContext(), "Clicked delete", Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewFoundReport.this);
 
@@ -110,6 +112,7 @@ public class ViewFoundReport extends Default_Activity{
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getApplicationContext(), "Approved deletion", Toast.LENGTH_SHORT).show();
                                 Log.v(TAG, "Delete approved");
                                 //if this button is clicked, reroute to user profile
                                 Intent userProfileIntent = new Intent(ViewFoundReport.this, UserProfile.class);
@@ -120,6 +123,7 @@ public class ViewFoundReport extends Default_Activity{
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, cancel the dialog and do nothing
+                                Toast.makeText(getApplicationContext(), "Cancelled deletion", Toast.LENGTH_SHORT).show();
                                 Log.v(TAG, "Delete cancelled");
                                 dialog.cancel();
                             }
