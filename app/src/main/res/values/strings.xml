@@ -23,4 +23,7 @@
     <string name="title_activity_user_profile">UserProfile</string>
     <string name="title_activity_report_lost_pet">ReportLostPet</string>
     <string name="title_activity_nearby_pets">NearbyPets</string>
+    <string name="alert_message">Hi Dog,\nSomeone found a pet that might be yours.
+    Check out the summary below. Click for more details.</string>
+    <string name="alert_summary">Species: Dog\nBreed: Schnauzer\nColor: Unknown\n</string>
 </resources>

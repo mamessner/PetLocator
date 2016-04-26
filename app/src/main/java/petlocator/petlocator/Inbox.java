@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,12 +26,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.model.LatLng;
 
 public class Inbox extends Default_Activity {
 
@@ -148,8 +145,10 @@ public class Inbox extends Default_Activity {
             ImageView firstImage = (ImageView) rootView.findViewById(R.id.image_user1);
             ImageView secondImage = (ImageView) rootView.findViewById(R.id.image_user2);
             ImageView thirdImage = (ImageView) rootView.findViewById(R.id.image_user3);
+            CardView firstCard = (CardView) rootView.findViewById(R.id.card1);
             switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1: // Messages tab
+                    firstCard.setVisibility(CardView.GONE);
                     firstMessage.setVisibility(TextView.VISIBLE);
                     secondMessage.setVisibility(TextView.VISIBLE);
                     thirdMessage.setVisibility(TextView.VISIBLE);
@@ -158,7 +157,13 @@ public class Inbox extends Default_Activity {
                     thirdImage.setVisibility(TextView.VISIBLE);
                     break;
                 case 2: // Alerts tab
-                    // TODO: do something
+                    firstMessage.setVisibility(TextView.GONE);
+                    secondMessage.setVisibility(TextView.GONE);
+                    thirdMessage.setVisibility(TextView.GONE);
+                    firstImage.setVisibility(ImageView.GONE);
+                    secondImage.setVisibility(ImageView.GONE);
+                    thirdImage.setVisibility(ImageView.GONE);
+                    firstCard.setVisibility(CardView.VISIBLE);
                     break;
                 default:
                     break;
