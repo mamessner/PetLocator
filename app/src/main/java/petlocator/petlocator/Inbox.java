@@ -1,5 +1,6 @@
 package petlocator.petlocator;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -126,6 +128,15 @@ public class Inbox extends Default_Activity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
             CardView alertCard = (CardView) rootView.findViewById(R.id.alert_card);
+            alertCard.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    Log.v(LOG_TAG, "Touched an alert");
+                    Intent viewFoundIntent = new Intent(getActivity(), ViewFoundReport.class);
+                    startActivity(viewFoundIntent);
+                    return true;
+                }
+            });
             CardView firstMessage = (CardView) rootView.findViewById(R.id.message_card1);
             CardView secondMessage = (CardView) rootView.findViewById(R.id.message_card2);
             CardView thirdMessage = (CardView) rootView.findViewById(R.id.message_card3);

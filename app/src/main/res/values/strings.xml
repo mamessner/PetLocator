@@ -25,6 +25,6 @@
     <string name="title_activity_nearby_pets">NearbyPets</string>
     <string name="alert_message">Hi Dog,\nSomeone found a pet that might be yours.
     Check out the summary below. Click for more details.</string>
-    <string name="alert_summary">Species: Dog\nBreed: Schnauzer\nColor: Unknown\n</string>
+    <string name="alert_summary">Species: Dog\nBreed: BG Retriever\nColor: Unknown\n</string>
     <string name="dog_name">Dog the Bounty Hunter</string>
 </resources>

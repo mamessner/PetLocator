@@ -14,6 +14,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,21 +45,10 @@ public class ViewLostReport extends Default_Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_lost_report);
 
         final String TAG = "VIEW LOST REPORT";
         actionBar = (Toolbar) findViewById(R.id.action_bar);
-        Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
-                R.drawable.menu_button, null);
-        actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("Lost and Found Pets");
-        setSupportActionBar(actionBar);
-
-        /* The entire section below involving menus and action bars can (and should) be used
-           in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.left_drawer);
+        actionBar.setTitle("View Lost Report");
 
         // Gets the MapView from the XML layout and creates it
         mapView = (MapView) findViewById(R.id.map);
@@ -144,6 +134,16 @@ public class ViewLostReport extends Default_Activity {
 
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
 
