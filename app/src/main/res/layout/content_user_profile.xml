@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="75dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Dog the Bounty Hunter"
+        android:textStyle="bold"
+        android:id="@+id/txt_username"
+        android:layout_alignParentTop="true" />
+
+    <ImageView
+        android:id="@+id/img_dog_bounty"
+        android:src="@drawable/dog_the_bounty_hunter"
+        android:layout_below="@+id/txt_username"
+        android:layout_marginLeft="10dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="125dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="17 Pets Found"
+        android:textStyle="bold"
+        android:id="@+id/txt_found"
+        android:layout_toRightOf="@+id/img_dog_bounty" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="162dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="2 Pets Retrieved"
+        android:textStyle="bold"
+        android:id="@+id/txt_retrieved"
+        android:layout_toRightOf="@+id/img_dog_bounty" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="200dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="23 Thanks"
+        android:textStyle="bold"
+        android:id="@+id/txt_thanks"
+        android:layout_toRightOf="@+id/img_dog_bounty" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="265dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="My Pets"
+        android:textStyle="bold"
+        android:id="@+id/txt_my_pets"
+        android:layout_toRightOf="@+id/img_dog_bounty" />
+
+    <ImageButton android:id="@+id/ib_my_messages"
+        android:src="@drawable/menu_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="300dp"
+        android:onClick="messagesButton"
+    />
+
+    <Button
+        android:id="@+id/button_my_messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="300dp"
+        android:text="My Messages"
+        android:onClick="messagesButton"/>
+
+    <ImageButton android:id="@+id/ib_my_reports"
+        android:src="@drawable/menu_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="355dp"
+        android:onClick="reportsButton"
+        />
+    <Button
+        android:id="@+id/button_my_reports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="355dp"
+        android:text="My Reports"
+        android:onClick="reportsButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="420dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Bio"
+        android:textStyle="bold"
+        android:id="@+id/txt_bio" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="445dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="I'm Dog. I like dogs."
+        android:textStyle="bold"
+        android:id="@+id/txt_bio_description" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="480dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Reviews"
+        android:textStyle="bold"
+        android:id="@+id/txt_reviews" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="515dp"
+        android:id="@+id/img_first_review"
+        android:src="@drawable/profile"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="515dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Dog found my dog! He's great!"
+        android:textStyle="bold"
+        android:id="@+id/txt_first_review" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="553dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="petluvr99"
+        android:textStyle="bold"
+        android:id="@+id/txt_first_review_user" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="565dp"
+        android:id="@+id/img_second_review"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="603dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="cat_a_pult"
+        android:textStyle="bold"
+        android:id="@+id/txt_second_review_user" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="65dp"
+        android:layout_marginTop="580dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Dog ate my cat. 3/5"
+        android:textStyle="bold"
+        android:id="@+id/txt_second_review" />
+
+
+
+</RelativeLayout>
