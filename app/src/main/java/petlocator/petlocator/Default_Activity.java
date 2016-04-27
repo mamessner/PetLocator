@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -40,12 +41,38 @@ public class Default_Activity extends AppCompatActivity {
 
         /* The entire section below involving menus and action bars can (and should) be used
            in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.left_drawer);
         setUpNavigationView();
         setUpDrawerLayout();
         Log.v(TAG, "On Create completed");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_inbox) {
+            Intent inboxIntent = new Intent (this, Inbox.class);
+            startActivity(inboxIntent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     /**

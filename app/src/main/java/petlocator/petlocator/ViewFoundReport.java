@@ -1,26 +1,16 @@
 package petlocator.petlocator;
 
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -32,28 +22,16 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class ViewFoundReport extends Default_Activity{
 
-
-    private ImageView imageView;
     private MapView mapView;
     private GoogleMap map;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_found_report);
-        final String TAG = "VIEW FOUND REPORT";
         actionBar = (Toolbar) findViewById(R.id.action_bar);
-        Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
-                R.drawable.menu_button, null);
-        actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("Lost and Found Pets");
-        setSupportActionBar(actionBar);
+        actionBar.setTitle("View Found Report");
+        final String TAG = "VIEW FOUND REPORT";
 
-        /* The entire section below involving menus and action bars can (and should) be used
-           in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.left_drawer);
         // Gets the MapView from the XML layout and creates it
         mapView = (MapView) findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
@@ -107,7 +85,7 @@ public class ViewFoundReport extends Default_Activity{
 
                 //set dialog message
                 alertDialogBuilder
-                        .setMessage("Click yes to delete")
+                        .setMessage("Click yes to delete.")
                         .setCancelable(false)
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
@@ -138,6 +116,17 @@ public class ViewFoundReport extends Default_Activity{
 
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
     /**

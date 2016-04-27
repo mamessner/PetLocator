@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 import com.google.android.gms.maps.GoogleMap;
@@ -34,11 +36,12 @@ public class Inbox extends Default_Activity {
      */
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
-
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private static final String LOG_TAG = "Inbox";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +74,7 @@ public class Inbox extends Default_Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -83,15 +84,12 @@ public class Inbox extends Default_Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_inbox) {
+            // do nothing here
+            Toast.makeText(getApplicationContext(), "Clicked inbox", Toast.LENGTH_SHORT).show();
+            Log.v(LOG_TAG, "Clicked inbox");
             return true;
         }
-//        if (id == R.id.action_inbox) {
-//            Intent inboxIntent = new Intent (this, Inbox.class);
-//            startActivity(inboxIntent);
-//            return true;
-//        }
 
         return super.onOptionsItemSelected(item);
     }
