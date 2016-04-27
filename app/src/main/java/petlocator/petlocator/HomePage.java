@@ -198,7 +198,7 @@ public class HomePage extends Default_Activity {
             MapsInitializer.initialize(this.getActivity());
 
             // Updates the location and zoom of the MapView
-            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
+            CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(37.269, -76.7103), 10);
             map.animateCamera(cameraUpdate);
             return rootView;
         }

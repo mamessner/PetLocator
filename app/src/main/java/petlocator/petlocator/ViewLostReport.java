@@ -67,7 +67,7 @@ public class ViewLostReport extends Default_Activity {
         MapsInitializer.initialize(ViewLostReport.this);
 
         // Updates the location and zoom of the MapView
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(37.269, -76.7103), 10);
         map.animateCamera(cameraUpdate);
 
         //Get the edit and delete buttons

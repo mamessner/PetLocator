@@ -20,4 +20,8 @@
 
     <style name="LightNoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AppTheme.Button" parent="Base.Widget.AppCompat.Button">
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+
 </resources>

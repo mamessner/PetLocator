@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -49,17 +50,17 @@ public class ViewFoundReport extends Default_Activity{
         MapsInitializer.initialize(ViewFoundReport.this);
 
         // Updates the location and zoom of the MapView
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(37.269, -76.7103), 10);
         map.animateCamera(cameraUpdate);
 
         //Get the edit and delete buttons
-        final Button edit_Button = (Button) findViewById(R.id.button);
+        final Button editButton = (Button) findViewById(R.id.edit_button);
         final Button delete_Button = (Button) findViewById(R.id.button2);
-        assert edit_Button != null;
+        assert editButton != null;
         assert delete_Button != null;
 
         //Set the edit button to reroute to the make report form on click
-        edit_Button.setOnClickListener(new View.OnClickListener() {
+        editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked edit", Toast.LENGTH_SHORT).show();
@@ -116,6 +117,24 @@ public class ViewFoundReport extends Default_Activity{
 
         });
 
+    }
+
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
     }
 
     @Override
