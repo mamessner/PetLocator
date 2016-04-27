@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -25,6 +26,11 @@ public class ViewFoundReport extends Default_Activity{
 
     private MapView mapView;
     private GoogleMap map;
+    private ListView list;
+    private String[] fieldHeaders = {"Name", "Color", "Breed", "Notes"};
+    private String[] fieldDescriptions = {"Unknown", "Golden", "Golden Retriever",
+            "He didn't have a collar but he came right up to me."};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +58,11 @@ public class ViewFoundReport extends Default_Activity{
         // Updates the location and zoom of the MapView
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(37.269, -76.7103), 10);
         map.animateCamera(cameraUpdate);
+
+        // Set up the report information
+        PetReportListAdapter adapter = new PetReportListAdapter(this, fieldHeaders, fieldDescriptions);
+        list = (ListView) findViewById(R.id.list);
+        list.setAdapter(adapter);
 
         //Get the edit and delete buttons
         final Button editButton = (Button) findViewById(R.id.edit_button);

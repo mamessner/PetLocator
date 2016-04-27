@@ -22,6 +22,7 @@
 
     <style name="AppTheme.Button" parent="Base.Widget.AppCompat.Button">
         <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="android:colorControlHighlight">@color/colorAccentDark</item>
     </style>
 
 </resources>
