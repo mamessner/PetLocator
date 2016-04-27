@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="petlocator.petlocator.HomePage">
+        tools:context="petlocator.petlocator.ReportFoundPet">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/appbar"
@@ -28,11 +28,10 @@
                 android:background="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/LightNoActionBar.PopupOverlay">
-
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
-
+        <include layout="@layout/content_report_found_pet" />
     </android.support.design.widget.CoordinatorLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/left_drawer"
