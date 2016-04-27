@@ -13,13 +13,15 @@ package petlocator.petlocator;
         import android.widget.ImageView;
         import android.widget.TextView;
 
+        import java.util.ArrayList;
+
 public class CustomListAdapter extends ArrayAdapter<String> {
 
     private final Activity context;
-    private final String[] itemname;
-    private final Integer[] imgid;
+    private ArrayList<String> itemname;
+    private ArrayList<Integer> imgid;
 
-    public CustomListAdapter(Activity context, String[] itemname, Integer[] imgid) {
+    public CustomListAdapter(Activity context, ArrayList<String> itemname, ArrayList<Integer> imgid) {
         super(context, R.layout.image_list, itemname);
         // TODO Auto-generated constructor stub
 
@@ -36,9 +38,9 @@ public class CustomListAdapter extends ArrayAdapter<String> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         TextView extratxt = (TextView) rowView.findViewById(R.id.textView1);
 
-        txtTitle.setText(itemname[position]);
-        imageView.setImageResource(imgid[position]);
-        extratxt.setText("Description "+itemname[position]);
+        txtTitle.setText(itemname.get(position));
+        imageView.setImageResource(imgid.get(position));
+        extratxt.setText("Description "+ itemname.get(position));
         return rowView;
 
     };
