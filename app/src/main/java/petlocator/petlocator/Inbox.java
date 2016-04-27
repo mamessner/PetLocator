@@ -1,9 +1,6 @@
 package petlocator.petlocator;
 
-import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,26 +12,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TableRow;
-import android.widget.TextView;
 
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 
 public class Inbox extends Default_Activity {
-
-
-    // TODO: This class will need to be more like HomePage and NearbyPets in that it should be tabbed.
-    // A good start would be to copy HomePage -> Inbox, activity_home_page -> activity_inbox, and
-    // fragment_home_page -> fragment_inbox.
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -139,31 +127,22 @@ public class Inbox extends Default_Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_inbox, container, false);
-            TextView firstMessage = (TextView) rootView.findViewById(R.id.message1);
-            TextView secondMessage = (TextView) rootView.findViewById(R.id.message2);
-            TextView thirdMessage = (TextView) rootView.findViewById(R.id.message3);
-            ImageView firstImage = (ImageView) rootView.findViewById(R.id.image_user1);
-            ImageView secondImage = (ImageView) rootView.findViewById(R.id.image_user2);
-            ImageView thirdImage = (ImageView) rootView.findViewById(R.id.image_user3);
-            CardView firstCard = (CardView) rootView.findViewById(R.id.card1);
+            CardView alertCard = (CardView) rootView.findViewById(R.id.alert_card);
+            CardView firstMessage = (CardView) rootView.findViewById(R.id.message_card1);
+            CardView secondMessage = (CardView) rootView.findViewById(R.id.message_card2);
+            CardView thirdMessage = (CardView) rootView.findViewById(R.id.message_card3);
             switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1: // Messages tab
-                    firstCard.setVisibility(CardView.GONE);
-                    firstMessage.setVisibility(TextView.VISIBLE);
-                    secondMessage.setVisibility(TextView.VISIBLE);
-                    thirdMessage.setVisibility(TextView.VISIBLE);
-                    firstImage.setVisibility(TextView.VISIBLE);
-                    secondImage.setVisibility(TextView.VISIBLE);
-                    thirdImage.setVisibility(TextView.VISIBLE);
+                    alertCard.setVisibility(CardView.GONE);
+                    firstMessage.setVisibility(CardView.VISIBLE);
+                    secondMessage.setVisibility(CardView.VISIBLE);
+                    thirdMessage.setVisibility(CardView.VISIBLE);
                     break;
                 case 2: // Alerts tab
-                    firstMessage.setVisibility(TextView.GONE);
-                    secondMessage.setVisibility(TextView.GONE);
-                    thirdMessage.setVisibility(TextView.GONE);
-                    firstImage.setVisibility(ImageView.GONE);
-                    secondImage.setVisibility(ImageView.GONE);
-                    thirdImage.setVisibility(ImageView.GONE);
-                    firstCard.setVisibility(CardView.VISIBLE);
+                    firstMessage.setVisibility(CardView.GONE);
+                    secondMessage.setVisibility(CardView.GONE);
+                    thirdMessage.setVisibility(CardView.GONE);
+                    alertCard.setVisibility(CardView.VISIBLE);
                     break;
                 default:
                     break;

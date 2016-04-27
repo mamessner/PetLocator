@@ -82,6 +82,7 @@ public class Default_Activity extends AppCompatActivity {
                         Log.v(TAG, "Home selected");
                         Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
                         Intent homeIntent = new Intent(Default_Activity.this, HomePage.class);
+                        startActivity(homeIntent);
                         return true;
                     case R.id.profile:
                         Log.v(TAG, "Profile selected");

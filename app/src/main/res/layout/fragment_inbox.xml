@@ -39,14 +39,13 @@
                     android:text="@string/alert_message"
                     android:layout_alignParentTop="true"/>
 
-            <TextView
-                android:id="@+id/alert1_summary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/alert_summary"
-                android:layout_below="@+id/alert1_message"
-                android:layout_alignLeft="@+id/alert1_message"/>
-
+                <TextView
+                    android:id="@+id/alert1_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alert_summary"
+                    android:layout_below="@+id/alert1_message"
+                    android:layout_alignLeft="@+id/alert1_message"/>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
 
@@ -67,15 +66,17 @@
                 android:paddingRight="16dp"
                 android:orientation="horizontal" >
                 <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="150dp"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
                     android:id="@+id/image_user1"
-                    android:src="@drawable/dog_the_bounty_hunter" />
+                    android:src="@drawable/dog_the_bounty_hunter"
+                    android:contentDescription="@string/dog_name"/>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Hey, thanks for the help finding Champ!"
                     android:id="@+id/message1" />
@@ -101,37 +102,56 @@
                 android:orientation="horizontal" >
 
                 <ImageView
-                    android:layout_width="200dp"
+                    android:layout_width="0dp"
                     android:layout_height="200dp"
                     android:layout_weight="1"
                     android:id="@+id/image_user2"
-                    android:src="@drawable/dog_the_bounty_hunter"/>
+                    android:src="@drawable/dog_the_bounty_hunter"
+                    android:contentDescription="@string/dog_name"/>
 
                 <TextView
                     android:layout_width="150dp"
-                    android:layout_height="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Good luck finding your dog!"
                     android:id="@+id/message2"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:id="@+id/image_user3"
-            android:src="@drawable/dog_the_bounty_hunter"
-            android:layout_below="@+id/image_user2"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="41dp" />
+        <!-- Third message card -->
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/message_card3"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/message_card2"
+            card_view:cardCornerRadius="4dp"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardElevation="4dp">
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:orientation="horizontal" >
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_weight="1"
+                    android:id="@+id/image_user3"
+                    android:src="@drawable/dog_the_bounty_hunter"
+                    android:contentDescription="@string/dog_name"/>
 
-        <TextView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Thanks!"
-            android:id="@+id/message3"
-            android:layout_alignTop="@+id/image_user3"
-            android:layout_toEndOf="@+id/image_user3" />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Thanks!"
+                    android:id="@+id/message3" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </RelativeLayout>
 </ScrollView>
