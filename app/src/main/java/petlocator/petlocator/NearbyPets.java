@@ -238,87 +238,87 @@ public class NearbyPets extends Default_Activity {
     }
 
 
-//    /**
-//     * Set up the listener for the left drawer.
-//     */
-//    private void setUpNavigationView() {
-//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-//
-//            // This method will trigger on item Click of navigation menu
-//            @Override
-//            public boolean onNavigationItemSelected(MenuItem menuItem) {
-//
-//
-//                //Checking if the item is in checked state or not, if not make it in checked state
-//                if(menuItem.isChecked()) menuItem.setChecked(false);
-//                else menuItem.setChecked(true);
-//
-//                //Closing drawer on item click
-//                drawerLayout.closeDrawers();
-//
-//                //Check to see which item was being clicked and perform appropriate action
-//                switch (menuItem.getItemId()){
-//                    case R.id.home:
-//                        Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
-//                        Intent homeIntent = new Intent(NearbyPets.this, HomePage.class);
-//                        startActivity(homeIntent);
-//                        return true;
-//                    case R.id.profile:
-//                        Toast.makeText(getApplicationContext(), "Clicked profile", Toast.LENGTH_SHORT).show();
-//                        Intent profileIntent = new Intent(NearbyPets.this, UserProfile.class);
-//                        startActivity(profileIntent);
-//                        return true;
-//                    case R.id.add_missing:
-//                        Toast.makeText(getApplicationContext(), "Clicked add missing", Toast.LENGTH_SHORT).show();
-//                        Intent reportLostIntent = new Intent(NearbyPets.this, ReportLostPet.class);
-//                        startActivity(reportLostIntent);
-//                        return true;
-//                    case R.id.add_found:
-//                        Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
-//                        Intent reportFoundIntent = new Intent(NearbyPets.this, ReportFoundPet.class);
-//                        startActivity(reportFoundIntent);
-//                        return true;
-//                    case R.id.nearby:
-//                        // no need to do anything here
-//                        Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    case R.id.sign_out:
-//                        // TODO: do something
-//                        Toast.makeText(getApplicationContext(), "Clicked sign out", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    default:
-//                        // TODO: do something
-//                        return false;
-//                }
-//            }
-//        });
-//    }
-//
-//    /** Set up toggle for the drawer. */
-//    private void setUpDrawerLayout() {
-//        // Initializing Drawer Layout and ActionBarToggle
-//        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-//                actionBar,R.string.drawer_open, R.string.drawer_close){
-//
-//            @Override
-//            public void onDrawerClosed(View drawerView) {
-//                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
-//                super.onDrawerClosed(drawerView);
-//            }
-//
-//            @Override
-//            public void onDrawerOpened(View drawerView) {
-//                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
-//
-//                super.onDrawerOpened(drawerView);
-//            }
-//        };
-//
-//        //Setting the actionbarToggle to drawer layout
-//        drawerLayout.setDrawerListener(actionBarDrawerToggle);
-//        actionBarDrawerToggle.syncState();
-//    }
+    /**
+     * Set up the listener for the left drawer.
+     */
+    private void setUpNavigationView() {
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+            // This method will trigger on item Click of navigation menu
+            @Override
+            public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+
+                //Checking if the item is in checked state or not, if not make it in checked state
+                if(menuItem.isChecked()) menuItem.setChecked(false);
+                else menuItem.setChecked(true);
+
+                //Closing drawer on item click
+                drawerLayout.closeDrawers();
+
+                //Check to see which item was being clicked and perform appropriate action
+                switch (menuItem.getItemId()){
+                    case R.id.home:
+                        Toast.makeText(getApplicationContext(), "Clicked home", Toast.LENGTH_SHORT).show();
+                        Intent homeIntent = new Intent(NearbyPets.this, HomePage.class);
+                        startActivity(homeIntent);
+                        return true;
+                    case R.id.profile:
+                        Toast.makeText(getApplicationContext(), "Clicked profile", Toast.LENGTH_SHORT).show();
+                        Intent profileIntent = new Intent(NearbyPets.this, UserProfile.class);
+                        startActivity(profileIntent);
+                        return true;
+                    case R.id.add_missing:
+                        Toast.makeText(getApplicationContext(), "Clicked add missing", Toast.LENGTH_SHORT).show();
+                        Intent reportLostIntent = new Intent(NearbyPets.this, ReportLostPet.class);
+                        startActivity(reportLostIntent);
+                        return true;
+                    case R.id.add_found:
+                        Toast.makeText(getApplicationContext(), "Clicked add found", Toast.LENGTH_SHORT).show();
+                        Intent reportFoundIntent = new Intent(NearbyPets.this, ReportFoundPet.class);
+                        startActivity(reportFoundIntent);
+                        return true;
+                    case R.id.nearby:
+                        // no need to do anything here
+                        Toast.makeText(getApplicationContext(), "Clicked nearby", Toast.LENGTH_SHORT).show();
+                        return true;
+                    case R.id.sign_out:
+                        // TODO: do something
+                        Toast.makeText(getApplicationContext(), "Clicked sign out", Toast.LENGTH_SHORT).show();
+                        return true;
+                    default:
+                        // TODO: do something
+                        return false;
+                }
+            }
+        });
+    }
+
+    /** Set up toggle for the drawer. */
+    private void setUpDrawerLayout() {
+        // Initializing Drawer Layout and ActionBarToggle
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
+                actionBar,R.string.drawer_open, R.string.drawer_close){
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+
+                super.onDrawerOpened(drawerView);
+            }
+        };
+
+        //Setting the actionbarToggle to drawer layout
+        drawerLayout.setDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+    }
 
     /**
      * A placeholder fragment containing a simple view.
