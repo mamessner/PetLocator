@@ -74,6 +74,11 @@ public class UserProfile extends Default_Activity {
     }
 
     @Override
+    protected int getLayout() {
+        return R.layout.activity_user_profile;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
     }

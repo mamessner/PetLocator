@@ -298,6 +298,11 @@ public class NearbyPets extends Default_Activity {
     }
 
     @Override
+    protected int getLayout() {
+        return R.layout.activity_nearby_pets;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         return super.onCreateOptionsMenu(menu);
     }
