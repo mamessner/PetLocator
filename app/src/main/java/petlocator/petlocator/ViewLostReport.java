@@ -39,7 +39,7 @@ public class ViewLostReport extends Default_Activity {
     private ListView list;
     private String[] fieldHeaders = {"Name", "Color", "Breed", "Notes"};
     private String[] fieldDescriptions = {"Jeeves", "Black", "Black lab",
-            "Jeeves is a sweet dog with a distinctive white spot in the center of the backs of " +
+            "Jeeves is a sweet golden with a distinctive white spot in the center of the backs of " +
             "both ears. He loves people and will probably approach you if you find him!"};
 
     @Override
@@ -159,5 +159,23 @@ public class ViewLostReport extends Default_Activity {
     @Override
     protected int getLayout() {
         return R.layout.activity_view_lost_report;
+    }
+
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
     }
 }

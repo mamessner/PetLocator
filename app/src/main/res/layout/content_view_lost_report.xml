@@ -42,7 +42,8 @@
             android:layout_height="200dp"
             android:id="@+id/imageSwitcher"
             android:src="@drawable/dog"
-            android:layout_centerHorizontal="true" />
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"/>
 
         <com.google.android.gms.maps.MapView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -51,54 +52,6 @@
             android:layout_width="200dp"
             android:layout_height="200dp" />
     </LinearLayout>
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:text="Jeeves"-->
-        <!--android:id="@+id/textView11"-->
-        <!--android:layout_below="@+id/imageSwitcher"-->
-        <!--android:layout_centerHorizontal="true" />-->
-
-    <!--<TextView-->
-        <!--android:layout_width="400dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:text="Jeeves is a sweet dog with a distinctive white spot in the center of the backs of both ears. He loves people and will probably approach you if you find him!"-->
-        <!--android:gravity="center"-->
-        <!--android:id="@+id/textView15"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_marginBottom="59dp"-->
-        <!--android:textSize="20dp" />-->
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:text="Color: Brown"-->
-        <!--android:id="@+id/textView13"-->
-        <!--android:layout_below="@+id/textView11"-->
-        <!--android:layout_marginBottom="30dp" />-->
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:text="Breed: BG Retriever"-->
-        <!--android:id="@+id/textView14"-->
-        <!--android:layout_below="@+id/textView13"-->
-        <!--android:layout_alignStart="@+id/textView13"-->
-        <!--android:layout_marginBottom="30dp" />-->
-
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"-->
-        <!--android:text="Age: 5"-->
-        <!--android:id="@+id/textView16"-->
-        <!--android:layout_below="@+id/textView14"-->
-        <!--android:layout_alignStart="@+id/textView14" />-->
 
     <ListView
         android:id="@+id/list"

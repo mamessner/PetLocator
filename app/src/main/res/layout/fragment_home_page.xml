@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,46 +15,52 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerHorizontal="true" />
-    <TableLayout
-        android:id="@+id/results"
+    <!--<TableLayout-->
+        <!--android:id="@+id/results"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/map"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:stretchColumns="1">-->
+        <!--<TableRow-->
+            <!--android:id="@+id/row1">-->
+            <!--<TextView-->
+                <!--android:id="@+id/row1_col1"-->
+                <!--android:padding="3dp"-->
+                <!--android:textColor="@color/colorTextPrimary"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/row1_col2"-->
+                <!--android:padding="3dp"-->
+                <!--android:gravity="center"-->
+                <!--android:textColor="@color/colorTextPrimary"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/row1_col3"-->
+                <!--android:padding="3dp"-->
+                <!--android:gravity="end"-->
+                <!--android:textColor="@color/colorTextPrimary"/>-->
+        <!--</TableRow>-->
+        <!--<TableRow-->
+            <!--android:id="@+id/row2">-->
+            <!--<TextView-->
+                <!--android:id="@+id/row2_col1"-->
+                <!--android:padding="3dp"-->
+                <!--android:textColor="@color/colorTextPrimary"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/row2_col2"-->
+                <!--android:padding="3dp"-->
+                <!--android:gravity="center"-->
+                <!--android:textColor="@color/colorTextPrimary"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/row2_col3"-->
+                <!--android:padding="3dp"-->
+                <!--android:gravity="end"-->
+                <!--android:textColor="@color/colorTextPrimary"/>-->
+        <!--</TableRow>-->
+    <!--</TableLayout>-->
+
+    <ListView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/map"
-        android:layout_alignParentStart="true"
-        android:stretchColumns="1">
-        <TableRow
-            android:id="@+id/row1">
-            <TextView
-                android:id="@+id/row1_col1"
-                android:padding="3dp"
-                android:textColor="@color/colorTextPrimary"/>
-            <TextView
-                android:id="@+id/row1_col2"
-                android:padding="3dp"
-                android:gravity="center"
-                android:textColor="@color/colorTextPrimary"/>
-            <TextView
-                android:id="@+id/row1_col3"
-                android:padding="3dp"
-                android:gravity="end"
-                android:textColor="@color/colorTextPrimary"/>
-        </TableRow>
-        <TableRow
-            android:id="@+id/row2">
-            <TextView
-                android:id="@+id/row2_col1"
-                android:padding="3dp"
-                android:textColor="@color/colorTextPrimary"/>
-            <TextView
-                android:id="@+id/row2_col2"
-                android:padding="3dp"
-                android:gravity="center"
-                android:textColor="@color/colorTextPrimary"/>
-            <TextView
-                android:id="@+id/row2_col3"
-                android:padding="3dp"
-                android:gravity="end"
-                android:textColor="@color/colorTextPrimary"/>
-        </TableRow>
-    </TableLayout>
+        android:layout_height="wrap_content"
+        android:id="@+id/nearby_pet_list"
+        android:layout_below="@+id/map"/>
 </RelativeLayout>

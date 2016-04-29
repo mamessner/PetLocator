@@ -2,8 +2,6 @@ package petlocator.petlocator;
 
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,14 +11,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -29,6 +25,9 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class HomePage extends Default_Activity {
 
@@ -40,13 +39,41 @@ public class HomePage extends Default_Activity {
      * may be best to switch to a
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
-
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+
+    // Information for lost pets
+    public static String[] lostNames = {"Boots", "Labby", "Jeeves", "Splingdo", "Flubgus",
+            "Shmort", "Lil Doogie", "Sarp", "Boots", "Labby", "Jeeves", "Splingdo", "Flubgus",
+            "Shmort", "Lil Doogie", "Sarp"};
+    public static ArrayList<String> lostNamesList = new ArrayList<String>(Arrays.asList(lostNames));
+    public static String[] lostBreeds = {"Calico short-hair", "Golden labradoodle", "Silver fox",
+            "Black mamba", "Purple goose", "White poodle", "Black sprinkle", "Pink moose",
+            "Calico short-hair", "Golden labradoodle", "Silver fox", "Black mamba",
+            "Purple goose", "White poodle", "Black sprinkle", "Pink moose"};
+    public static ArrayList<String> lostBreedsList = new ArrayList<String>(Arrays.asList(lostBreeds));
+    public static Integer[] lostImages = {R.drawable.cat, R.drawable.dog, R.drawable.cat,
+            R.drawable.dog, R.drawable.cat, R.drawable.dog, R.drawable.cat, R.drawable.dog,
+            R.drawable.cat, R.drawable.dog, R.drawable.cat, R.drawable.dog, R.drawable.cat,
+            R.drawable.dog, R.drawable.cat, R.drawable.dog};
+    public static ArrayList<Integer> lostImagesList = new ArrayList<Integer>(Arrays.asList(lostImages));
+
+    // Information for found pets
+    public static String[] foundNames = {"Shoes", "Poodle", "Jives", "Flingdo", "Glubfus",
+            "Shmoop", "Lil CatCat", "Prust"};
+    public static ArrayList<String> foundNamesList = new ArrayList<String>(Arrays.asList(foundNames));
+    public static String[] foundBreeds = {"Domestic shorthair", "Poodle", "Black lab",
+            "Calico", "Border collie", "Border collie", "Gray tabby", "Whippet"};
+    public static ArrayList<String> foundBreedsList = new ArrayList<String>(Arrays.asList(foundBreeds));
+    public static Integer[] foundImages = {R.drawable.cat, R.drawable.dog, R.drawable.dog,
+            R.drawable.cat, R.drawable.dog, R.drawable.dog, R.drawable.cat, R.drawable.dog};
+    public static ArrayList<Integer> foundImagesList = new ArrayList<Integer>(Arrays.asList(foundImages));
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,15 +85,6 @@ public class HomePage extends Default_Activity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -116,67 +134,35 @@ public class HomePage extends Default_Activity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
-            TableRow firstRow = (TableRow) rootView.findViewById(R.id.row1);
-            TableRow secondRow = (TableRow) rootView.findViewById(R.id.row2);
-            TextView row1Col1 = (TextView) rootView.findViewById(R.id.row1_col1);
-            TextView row1Col2 = (TextView) rootView.findViewById(R.id.row1_col2);
-            TextView row1Col3 = (TextView) rootView.findViewById(R.id.row1_col3);
-            TextView row2Col1 = (TextView) rootView.findViewById(R.id.row2_col1);
-            TextView row2Col2 = (TextView) rootView.findViewById(R.id.row2_col2);
-            TextView row2Col3 = (TextView) rootView.findViewById(R.id.row2_col3);
-//            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            ListView list = (ListView) rootView.findViewById(R.id.nearby_pet_list);
+            CustomListAdapter adapter;
             switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
-                case 1:
-                    row1Col1.setText("Fido");
-                    row1Col2.setText("Greyhound");
-                    row1Col3.setText("0.1 mi");
-                    row2Col1.setText("Boots");
-                    row2Col2.setText("Calico shorthair");
-                    row2Col3.setText("0.3 mi");
-                    firstRow.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            Intent fidoIntent = new Intent(getActivity(), ViewLostReport.class);
-                            // TODO: log something
-                            startActivity(fidoIntent);
-                            return true;
-                        }
-                    });
-                    secondRow.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            // TODO: log something
-                            Intent fidoIntent = new Intent(getActivity(), ViewLostReport.class);
-                            startActivity(fidoIntent);
-                            return true;
+                case 1: // Lost pets
+                    adapter = new CustomListAdapter(getActivity(), lostNamesList, lostImagesList, lostBreedsList);
+                    list.setAdapter(adapter);
+                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            String selectedItem = lostNames[+position];
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "Clicked " + selectedItem, Toast.LENGTH_SHORT).show();
+                            Intent viewLostIntent = new Intent(getActivity(), ViewLostReport.class);
+                            startActivity(viewLostIntent);
                         }
                     });
                     break;
-                case 2:
-                    row1Col1.setText("Iko");
-                    row1Col2.setText("Black lab");
-                    row1Col3.setText("1.17 mi");
-                    row2Col1.setText("Cinnamon");
-                    row2Col2.setText("Torbie");
-                    row2Col3.setText("1.75 mi");
-                    firstRow.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            Intent firstIntent = new Intent(getActivity(), ViewFoundReport.class);
-                            // TODO: log something
-                            startActivity(firstIntent);
-                            return true;
+                case 2: // Found pets
+                    adapter = new CustomListAdapter(getActivity(), foundNamesList, foundImagesList, foundBreedsList);
+                    list.setAdapter(adapter);
+                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            String selectedItem = lostNames[+position];
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "Clicked " + selectedItem, Toast.LENGTH_SHORT).show();
+                            Intent viewFoundIntent = new Intent(getActivity(), ViewFoundReport.class);
+                            startActivity(viewFoundIntent);
                         }
                     });
-                    secondRow.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            // TODO: log something
-                            Intent firstIntent = new Intent(getActivity(), ViewFoundReport.class);
-                            startActivity(firstIntent);
-                            return true;
-                        }
-                    });
+                    break;
                 default:
                     break;
             }
@@ -257,15 +243,13 @@ public class HomePage extends Default_Activity {
         }
     }
 
-    /* The click listener for ListView in the navigation drawer. */
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
-
-    private void selectItem(int position) {
-        // TODO: do something
-    }
+//    protected class LostPetClickListener implements AdapterView.OnItemClickListener {
+//        @Override
+//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//            String selectedItem = lostNames[+position];
+//            Toast.makeText(getApplicationContext(), "Clicked " + selectedItem, Toast.LENGTH_SHORT).show();
+//            Intent viewLostIntent = new Intent(HomePage.this, ViewLostReport.class);
+//            startActivity(viewLostIntent);
+//        }
+//    }
 }
