@@ -20,14 +20,16 @@ public class CustomListAdapter extends ArrayAdapter<String> {
     private final Activity context;
     private ArrayList<String> itemname;
     private ArrayList<Integer> imgid;
+    private ArrayList<String> description;
 
-    public CustomListAdapter(Activity context, ArrayList<String> itemname, ArrayList<Integer> imgid) {
+    public CustomListAdapter(Activity context, ArrayList<String> itemname, ArrayList<Integer> imgid, ArrayList<String> description) {
         super(context, R.layout.image_list, itemname);
         // TODO Auto-generated constructor stub
 
         this.context=context;
         this.itemname=itemname;
         this.imgid=imgid;
+        this.description = description;
     }
 
     public View getView(int position,View view,ViewGroup parent) {
@@ -40,7 +42,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
         txtTitle.setText(itemname.get(position));
         imageView.setImageResource(imgid.get(position));
-        extratxt.setText("Description "+ itemname.get(position));
+        extratxt.setText(description.get(position));
         return rowView;
 
     };

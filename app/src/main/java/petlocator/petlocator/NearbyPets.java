@@ -80,9 +80,36 @@ public class NearbyPets extends Default_Activity {
             "Flubgus",
             "Shmort",
             "Lil Doogie",
+            "Sarp",
+            "Boots",
+            "Labby",
+            "Jeeves",
+            "Splingdo",
+            "Flubgus",
+            "Shmort",
+            "Lil Doogie",
             "Sarp"
     };
     static ArrayList<String> lostitemnamelist = new ArrayList<String>(Arrays.asList(lostitemname));
+    public static String[] lostitemdescription = {
+            "Calico short-hair",
+            "Golden labradoodle",
+            "Silver fox",
+            "Black mamba",
+            "Purple goose",
+            "White poodle",
+            "Black sprinkle",
+            "Pink moose",
+            "Calico short-hair",
+            "Golden labradoodle",
+            "Silver fox",
+            "Black mamba",
+            "Purple goose",
+            "White poodle",
+            "Black sprinkle",
+            "Pink moose"
+    };
+    static ArrayList<String> lostitemdescriptionlist = new ArrayList<String>(Arrays.asList(lostitemdescription));
 
     public static String[] spotteditemname = {
             "Shoes",
@@ -105,6 +132,14 @@ public class NearbyPets extends Default_Activity {
             R.drawable.dog,
             R.drawable.cat,
             R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog
     };
     static ArrayList<Integer> lostimgidlist = new ArrayList<Integer>(Arrays.asList(lostimgid));
 
@@ -228,7 +263,7 @@ public class NearbyPets extends Default_Activity {
 
         /* Handles displaying custom entries on an image+text ListView */
 
-        adapter = new CustomListAdapter(this, lostitemnamelist, lostimgidlist);
+        adapter = new CustomListAdapter(this, lostitemnamelist, lostimgidlist, lostitemdescriptionlist);
         ListView list = (ListView) findViewById(R.id.nearby_pet_list);
         list.setAdapter(adapter);
 
@@ -264,28 +299,11 @@ public class NearbyPets extends Default_Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        if (id == R.id.action_inbox) {
-            Intent inboxIntent = new Intent(this, Inbox.class);
-            startActivity(inboxIntent);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

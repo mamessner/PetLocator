@@ -34,14 +34,22 @@ public class MyReports extends Default_Activity {
     public CustomListAdapter reportAdapter;
 
     public String[] reportitemname = {
-            "Boots",
-            "Labby",
-            "Jeeves",
-            "Splingdo",
-            "Flubgus",
-            "Shmort",
-            "Lil Doogie",
-            "Sarp"
+            "LOST",
+            "LOST",
+            "SPOTTED",
+            "LOST",
+            "SPOTTED",
+            "SPOTTED",
+            "SPOTTED",
+            "SPOTTED",
+            "LOST",
+            "LOST",
+            "SPOTTED",
+            "LOST",
+            "SPOTTED",
+            "SPOTTED",
+            "SPOTTED",
+            "SPOTTED"
     };
     ArrayList<String> reportitemnamelist = new ArrayList<String>(Arrays.asList(reportitemname));
 
@@ -54,8 +62,36 @@ public class MyReports extends Default_Activity {
             R.drawable.dog,
             R.drawable.cat,
             R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog
     };
     ArrayList<Integer> reportimgidlist = new ArrayList<Integer>(Arrays.asList(reportimgid));
+
+    public static String[] reportitemdescription = {
+            "Fido - Greyhound Terrier - 9/10/2015",
+            "Jeeves - Alaskan Wallabee - 6/4/2015",
+            "Lingus - Golden Labradoodle - 5/3/2015",
+            "Lil Doogie - Short-hair Cat - 5/2/2014",
+            "Fido - Greyhound Terrier - 9/10/2015",
+            "Jeeves - Alaskan Wallabee - 6/4/2015",
+            "Lingus - Golden Labradoodle - 5/3/2015",
+            "Lil Doogie - Short-hair Cat - 5/2/2014",
+            "Fido - Greyhound Terrier - 9/10/2015",
+            "Jeeves - Alaskan Wallabee - 6/4/2015",
+            "Lingus - Golden Labradoodle - 5/3/2015",
+            "Lil Doogie - Short-hair Cat - 5/2/2014",
+            "Fido - Greyhound Terrier - 9/10/2015",
+            "Jeeves - Alaskan Wallabee - 6/4/2015",
+            "Lingus - Golden Labradoodle - 5/3/2015",
+            "Lil Doogie - Short-hair Cat - 5/2/2014"
+    };
+    static ArrayList<String> reportitemdescriptionlist = new ArrayList<String>(Arrays.asList(reportitemdescription));
 
 
     /**
@@ -67,7 +103,7 @@ public class MyReports extends Default_Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_my_reports);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
@@ -87,10 +123,10 @@ public class MyReports extends Default_Activity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        /*
-        reportAdapter = new CustomListAdapter(this, reportitemnamelist, reportimgidlist);
+
+        reportAdapter = new CustomListAdapter(this, reportitemnamelist, reportimgidlist, reportitemdescriptionlist);
         ListView list = (ListView) findViewById(R.id.list_my_reports);
-       //list.setAdapter(reportAdapter);
+       list.setAdapter(reportAdapter);
 
         assert list != null;
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,43 +140,18 @@ public class MyReports extends Default_Activity {
                 Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_SHORT).show();
                 Log.v("Lost", "Starting lost report activity");
             }
-        }); */
+        });
 
 
-    }
-
-    public void reportsButton(View view) {
-        Toast.makeText(getApplicationContext(), "You have clicked the reports button", Toast.LENGTH_LONG).show();
-    }
-
-    public void messagesButton(View view) {
-        Toast.makeText(getApplicationContext(), "You have clicked the messages button", Toast.LENGTH_LONG).show();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar_menu, menu);
-        return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        if (id == R.id.action_inbox) {
-            Intent inboxIntent = new Intent(this, Inbox.class);
-            startActivity(inboxIntent);
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 

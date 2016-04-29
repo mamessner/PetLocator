@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -11,14 +12,14 @@
         android:textSize="55dp"
         android:text="MY REPORTS"
         android:textStyle="bold"
-        android:id="@+id/txt_second_review" />
+        android:id="@+id/txt_my_reports" /> -->
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list_my_reports"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="75dp"
         android:layout_alignParentStart="true" />
 
 </RelativeLayout>
