@@ -20,7 +20,13 @@
 
         <activity
             android:name=".SignIn"
-            android:label="@string/title_activity_sign_in" />
+            android:label="@string/title_activity_sign_in">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Default_Activity"
             android:label="@string/title_activity_default_"
@@ -47,11 +53,11 @@
             android:label="@string/title_activity_view_found_report"
             android:theme="@style/LightNoActionBar" />
         <activity android:name=".HomePage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".MainActivity"
