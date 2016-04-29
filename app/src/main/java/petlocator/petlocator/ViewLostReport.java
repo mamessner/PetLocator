@@ -33,14 +33,14 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class ViewLostReport extends Default_Activity {
 
-    private String[] menuOptions;
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle drawerToggle;
     private Toolbar actionBar;
-    private ImageView imageView;
     private MapView mapView;
     private GoogleMap map;
+    private ListView list;
+    private String[] fieldHeaders = {"Name", "Color", "Breed", "Notes"};
+    private String[] fieldDescriptions = {"Jeeves", "Black", "Black lab",
+            "Jeeves is a sweet dog with a distinctive white spot in the center of the backs of " +
+            "both ears. He loves people and will probably approach you if you find him!"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +70,14 @@ public class ViewLostReport extends Default_Activity {
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(37.269, -76.7103), 10);
         map.animateCamera(cameraUpdate);
 
+        // Set up the ListView
+        // Set up the report information
+        PetReportListAdapter adapter = new PetReportListAdapter(this, fieldHeaders, fieldDescriptions);
+        list = (ListView) findViewById(R.id.list);
+        list.setAdapter(adapter);
+
         //Get the edit and delete buttons
-        final Button edit_Button = (Button) findViewById(R.id.button);
+        final Button edit_Button = (Button) findViewById(R.id.edit_button);
         final Button delete_Button = (Button) findViewById(R.id.button2);
         assert edit_Button != null;
         assert delete_Button != null;
@@ -145,7 +151,6 @@ public class ViewLostReport extends Default_Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
     }
-
 
     /**
      * Override this in each subclass and replace with appropriate layout.

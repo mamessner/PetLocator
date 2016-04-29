@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:text="Delete"
         android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
         android:layout_alignParentEnd="true"
         android:theme="@style/AppTheme.Button"/>
 
@@ -42,8 +41,7 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:id="@+id/imageSwitcher"
-            android:src="@drawable/dog"
-            android:layout_centerHorizontal="true" />
+            android:src="@drawable/dog" />
 
         <com.google.android.gms.maps.MapView
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -52,114 +50,6 @@
             android:layout_width="200dp"
             android:layout_height="200dp" />
     </LinearLayout>
-
-    <!--<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-        <!--android:id="@+id/tableLayout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_below="@id/map_image_layout">-->
-        <!--&lt;!&ndash; Name row &ndash;&gt;-->
-        <!--<TableRow-->
-            <!--android:id="@+id/tableRow1"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="5dp" >-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Name:"-->
-                <!--android:id="@+id/nameHeader"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="right"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Unknown"-->
-                <!--android:id="@+id/foundName"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="left"/>-->
-        <!--</TableRow>-->
-        <!--&lt;!&ndash; Color row &ndash;&gt;-->
-        <!--<TableRow-->
-            <!--android:id="@+id/tableRow2"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="5dp" >-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Color:"-->
-                <!--android:id="@+id/textView13"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="right"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Brown"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="left"/>-->
-        <!--</TableRow>-->
-        <!--&lt;!&ndash; Breed row &ndash;&gt;-->
-        <!--<TableRow-->
-            <!--android:id="@+id/tableRow3"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="5dp" >-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Breed:"-->
-                <!--android:id="@+id/textView14"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="right"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="BG Retriever"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="left"/>-->
-        <!--</TableRow>-->
-        <!--&lt;!&ndash; Age row &ndash;&gt;-->
-        <!--<TableRow-->
-            <!--android:id="@+id/tableRow4"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="5dp" >-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Age:"-->
-                <!--android:id="@+id/textView16"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="right"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Unknown"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="left"/>-->
-        <!--</TableRow>-->
-        <!--&lt;!&ndash; Notes row &ndash;&gt;-->
-        <!--<TableRow-->
-            <!--android:id="@+id/tableRow5"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:padding="5dp" >-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Notes:"-->
-                <!--android:id="@+id/textView15"-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="right"/>-->
-            <!--<TextView-->
-                <!--android:layout_width="325dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="It&apos;s a brown dog. Didn&apos;t have a collar but he came right up to me."-->
-                <!--android:textColor="@color/colorTextPrimary"-->
-                <!--android:gravity="left"/>-->
-        <!--</TableRow>-->
-    <!--</TableLayout>-->
 
     <ListView
         android:id="@+id/list"
