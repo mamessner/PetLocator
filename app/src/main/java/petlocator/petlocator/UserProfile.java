@@ -1,21 +1,13 @@
 package petlocator.petlocator;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -24,15 +16,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class UserProfile extends Default_Activity {
 
-    private String[] menuOptions;
-    public DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle drawerToggle;
     private Toolbar actionBar;
-    private Button messageButtonText;
-    private Button reportButtonText;
-    private ImageButton messageButton;
-    private ImageButton reportButton;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -42,18 +26,10 @@ public class UserProfile extends Default_Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
-        Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
-                R.drawable.menu_button, null);
-        actionBar.setNavigationIcon(menuButton);
         actionBar.setTitle("My Profile");
-        setSupportActionBar(actionBar);
 
-        /* The entire section below involving menus and action bars can (and should) be used
-           in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

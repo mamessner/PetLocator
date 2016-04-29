@@ -1,13 +1,8 @@
 package petlocator.petlocator;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -26,10 +21,7 @@ import java.util.Arrays;
 
 public class MyReports extends Default_Activity {
 
-    private String[] menuOptions;
     public DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private ActionBarDrawerToggle drawerToggle;
     private Toolbar actionBar;
     public CustomListAdapter reportAdapter;
 
@@ -103,22 +95,10 @@ public class MyReports extends Default_Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_reports);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
-        Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
-                R.drawable.menu_button, null);
-        actionBar.setNavigationIcon(menuButton);
         actionBar.setTitle("My Reports");
-        setSupportActionBar(actionBar);
 
-        /* The entire section below involving menus and action bars can (and should) be used
-           in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
-        //drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //navigationView = (NavigationView) findViewById(R.id.left_drawer);
-        //setUpNavigationView();
-        //setUpDrawerLayout();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

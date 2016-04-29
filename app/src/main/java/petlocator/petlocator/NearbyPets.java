@@ -2,17 +2,10 @@ package petlocator.petlocator;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 
@@ -21,30 +14,24 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.nearby.Nearby;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -60,8 +47,6 @@ public class NearbyPets extends Default_Activity {
      * {@link FragmentStatePagerAdapter}.
      */
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    private String[] menuOptions;
-    public DrawerLayout drawerLayout;
     private Toolbar actionBar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -169,17 +154,12 @@ public class NearbyPets extends Default_Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nearby_pets);
 
         actionBar = (Toolbar) findViewById(R.id.action_bar);
-        Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
-                R.drawable.menu_button, null);
-        actionBar.setNavigationIcon(menuButton);
         actionBar.setTitle("Nearby Pets");
-        setSupportActionBar(actionBar);
 
         /*
-        Assigning view variables to thier respective view in xml
+        Assigning view variables to their respective view in xml
         by findViewByID method
          */
 
@@ -192,7 +172,6 @@ public class NearbyPets extends Default_Activity {
         the default action bar thus making the toolbar work like a normal
         action bar.
          */
-        setSupportActionBar(actionBar);
 
         tabLayout.setupWithViewPager(mViewPager);
 
@@ -213,10 +192,6 @@ public class NearbyPets extends Default_Activity {
          */
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-        /* The entire section below involving menus and action bars can (and should) be used
-           in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -472,17 +447,5 @@ public class NearbyPets extends Default_Activity {
             }
             return null;
         }
-    }
-
-    /* The click listener for ListView in the navigation drawer. */
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
-
-    private void selectItem(int position) {
-        // TODO: do something
     }
 }
