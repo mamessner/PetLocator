@@ -152,7 +152,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="553dp"
+        android:layout_marginTop="556dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="petluvr99"
         android:textStyle="bold"
@@ -162,7 +162,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="565dp"
+        android:layout_marginTop="568dp"
         android:id="@+id/img_second_review"
         android:src="@drawable/profile" />
 
@@ -170,7 +170,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="603dp"
+        android:layout_marginTop="612dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="cat_a_pult"
         android:textStyle="bold"
@@ -185,7 +185,5 @@
         android:text="Dog ate my cat. 3/5"
         android:textStyle="bold"
         android:id="@+id/txt_second_review" />
-
-
 
 </RelativeLayout>

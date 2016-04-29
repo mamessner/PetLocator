@@ -27,6 +27,8 @@
     Check out the summary below. Click for more details.</string>
     <string name="alert_summary">Species: Dog\nBreed: BG Retriever\nColor: Unknown\n</string>
     <string name="dog_name">Dog the Bounty Hunter</string>
+    <string name="title_activity_my_reports">My Reports</string>
+    <string name="title_activity_inbox">Inbox</string>
     <string-array name="animal_array">
         <item>Dog</item>
         <item>Cat</item>

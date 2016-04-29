@@ -8,31 +8,56 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class UserProfile extends Default_Activity {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class MyReports extends Default_Activity {
 
     private String[] menuOptions;
     public DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private ActionBarDrawerToggle drawerToggle;
     private Toolbar actionBar;
-    private Button messageButtonText;
-    private Button reportButtonText;
-    private ImageButton messageButton;
-    private ImageButton reportButton;
+    public CustomListAdapter reportAdapter;
+
+    public String[] reportitemname = {
+            "Boots",
+            "Labby",
+            "Jeeves",
+            "Splingdo",
+            "Flubgus",
+            "Shmort",
+            "Lil Doogie",
+            "Sarp"
+    };
+    ArrayList<String> reportitemnamelist = new ArrayList<String>(Arrays.asList(reportitemname));
+
+    public Integer[] reportimgid= {
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+            R.drawable.cat,
+            R.drawable.dog,
+    };
+    ArrayList<Integer> reportimgidlist = new ArrayList<Integer>(Arrays.asList(reportimgid));
+
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -48,27 +73,48 @@ public class UserProfile extends Default_Activity {
         Drawable menuButton = ResourcesCompat.getDrawable(getResources(),
                 R.drawable.menu_button, null);
         actionBar.setNavigationIcon(menuButton);
-        actionBar.setTitle("My Profile");
+        actionBar.setTitle("My Reports");
         setSupportActionBar(actionBar);
 
         /* The entire section below involving menus and action bars can (and should) be used
            in all activities. */
         menuOptions = getResources().getStringArray(R.array.menu_options);
+        //drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //navigationView = (NavigationView) findViewById(R.id.left_drawer);
+        //setUpNavigationView();
+        //setUpDrawerLayout();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        /*
+        reportAdapter = new CustomListAdapter(this, reportitemnamelist, reportimgidlist);
+        ListView list = (ListView) findViewById(R.id.list_my_reports);
+       //list.setAdapter(reportAdapter);
+
+        assert list != null;
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                // TODO Auto-generated method stub
+
+                String selectedItem = reportitemname[+position];
+                Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_SHORT).show();
+                Log.v("Lost", "Starting lost report activity");
+            }
+        }); */
+
+
     }
 
     public void reportsButton(View view) {
         Toast.makeText(getApplicationContext(), "You have clicked the reports button", Toast.LENGTH_LONG).show();
-        Log.v("Reports", "Clicked the reports button");
-        Intent myReportsIntent = new Intent(UserProfile.this, MyReports.class);
-        startActivity(myReportsIntent);
     }
 
     public void messagesButton(View view) {
         Toast.makeText(getApplicationContext(), "You have clicked the messages button", Toast.LENGTH_LONG).show();
-        Log.v("Messages", "Clicked the messages button");
     }
 
     @Override
@@ -107,7 +153,7 @@ public class UserProfile extends Default_Activity {
         client.connect();
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
-                "UserProfile Page", // TODO: Define a title for the content shown.
+                "MyReports Page", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
@@ -126,7 +172,7 @@ public class UserProfile extends Default_Activity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
-                "UserProfile Page", // TODO: Define a title for the content shown.
+                "MyReports Page", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.
