@@ -15,19 +15,17 @@ import android.widget.Toast;
 
 public class Sign_Up extends Default_Activity {
 
-    final Button sign_Up_Button = (Button) findViewById(R.id.sign_up_button);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__up);
-        /* The entire section below involving menus and action bars can (and should) be used
-           in all activities. */
-        menuOptions = getResources().getStringArray(R.array.menu_options);
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.left_drawer);
-        setUpNavigationView();
-        setUpDrawerLayout();
-        sign_Up_Button.setOnClickListener(new View.OnClickListener(){
+        actionBar = (Toolbar) findViewById(R.id.action_bar);
+        actionBar.setTitle("Sign Up");
+        setSupportActionBar(actionBar);
+
+        // Set up button
+        final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
+        signUpButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), "Clicked Sign Up", Toast.LENGTH_SHORT).show();
