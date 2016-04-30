@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Browse For Photo"
-        android:id="@+id/button3"
+        android:id="@+id/browse_button"
         android:layout_below="@+id/editText9"
         android:layout_alignStart="@+id/editText9"
         android:layout_alignEnd="@+id/editText9" />
@@ -89,8 +89,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
+        android:id="@+id/submit_button"
+        android:layout_below="@+id/browse_button"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -99,7 +99,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="* Required"
         android:id="@+id/textView22"
-        android:layout_below="@+id/button4"
-        android:layout_alignEnd="@+id/button3" />
+        android:layout_below="@+id/submit_button"
+        android:layout_alignEnd="@+id/browse_button" />
 
 </RelativeLayout>

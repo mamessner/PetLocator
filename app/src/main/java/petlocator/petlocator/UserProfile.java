@@ -17,6 +17,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class UserProfile extends Default_Activity {
 
     private Toolbar actionBar;
+    private static final String LOG_TAG = "UserProfile";
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -37,14 +38,14 @@ public class UserProfile extends Default_Activity {
 
     public void reportsButton(View view) {
         Toast.makeText(getApplicationContext(), "You have clicked the reports button", Toast.LENGTH_LONG).show();
-        Log.v("Reports", "Clicked the reports button");
+        Log.v(LOG_TAG, "Going to My Reports page");
         Intent myReportsIntent = new Intent(UserProfile.this, MyReports.class);
         startActivity(myReportsIntent);
     }
 
     public void messagesButton(View view) {
         Toast.makeText(getApplicationContext(), "You have clicked the messages button", Toast.LENGTH_LONG).show();
-        Log.v("Messages", "Clicked the messages button");
+        Log.v(LOG_TAG, "Going to the messages page");
         Intent myMessagesIntent = new Intent(UserProfile.this, Inbox.class);
         startActivity(myMessagesIntent);
     }

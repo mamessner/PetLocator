@@ -51,6 +51,7 @@ public class NearbyPets extends Default_Activity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private Button filterButton;
+    private static final String LOG_TAG = "NearbyPets";
 
     public static int tabStatus = 1;
 
@@ -215,6 +216,7 @@ public class NearbyPets extends Default_Activity {
         SeekBar distance_seekbar = (SeekBar) findViewById(R.id.distance_seekbar);
         final TextView distance_text = (TextView) findViewById(R.id.distance_text);
 
+        assert distance_seekbar != null;
         distance_seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int distance = 3;
 
@@ -240,6 +242,7 @@ public class NearbyPets extends Default_Activity {
 
         adapter = new CustomListAdapter(this, lostitemnamelist, lostimgidlist, lostitemdescriptionlist);
         ListView list = (ListView) findViewById(R.id.nearby_pet_list);
+        assert list != null;
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -248,19 +251,19 @@ public class NearbyPets extends Default_Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 // TODO Auto-generated method stub
-                Log.v("List entry clicked", "");
+                Log.v(LOG_TAG, "Clicked an item");
                 if (tabStatus == 0) {
                     String selectedItem = lostitemname[+position];
                     Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_SHORT).show();
                     Intent view_lost_report = new Intent(NearbyPets.this, ViewLostReport.class);
                     NearbyPets.this.startActivity(view_lost_report);
-                    Log.v("Lost", "Starting lost report activity");
+                    Log.v(LOG_TAG, "Starting generic lost report activity");
                 } else if (tabStatus == 1) {
                     String selectedItem = spotteditemname[+position];
                     Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_SHORT).show();
                     Intent view_found_report = new Intent(NearbyPets.this, ViewFoundReport.class);
                     NearbyPets.this.startActivity(view_found_report);
-                    Log.v("Found", "Starting found report activity");
+                    Log.v(LOG_TAG, "Starting generic found report activity");
                 }
 
 
@@ -393,7 +396,7 @@ public class NearbyPets extends Default_Activity {
 
             switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 0:
-                    Log.v("Tab switch", "Switching to Lost Pet Tab");
+                    Log.v(LOG_TAG, "Switching to Lost Pet Tab");
                     NearbyPets.tabStatus = 0;
                     Log.v("Tab Status", Integer.toString(NearbyPets.tabStatus));
                     //NearbyPets.adapter.clear();
@@ -401,9 +404,9 @@ public class NearbyPets extends Default_Activity {
 
                     break;
                 case 1:
-                    Log.v("Tab switch", "switching tabs to the Found tab");
+                    Log.v(LOG_TAG, "Switching to  Found Pet Tab");
                     NearbyPets.tabStatus = 1;
-                    Log.v("Tab Status", Integer.toString(NearbyPets.tabStatus));
+                    Log.v(LOG_TAG, "Tab status: " + Integer.toString(NearbyPets.tabStatus));
                     //NearbyPets.adapter.clear();
                     //adapter.updateData(NearbyPets.spotteditemnamelist, NearbyPets.spottedimgidlist);
                     break;

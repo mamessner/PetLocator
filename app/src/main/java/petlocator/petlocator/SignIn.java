@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class SignIn extends AppCompatActivity {
     private Toolbar actionBar;
+    private static final String LOG_TAG = "SignIn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class SignIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked Sign In", Toast.LENGTH_SHORT).show();
-                Log.v("Sign In", "Sign in complete");
+                Log.v(LOG_TAG, "Going to home page");
                 Intent signInIntent = new Intent(SignIn.this, HomePage.class);
                 SignIn.this.startActivity(signInIntent);
             }
@@ -37,7 +38,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked Sign Up", Toast.LENGTH_SHORT).show();
-                Log.v("Sign In", "Going to sign up");
+                Log.v(LOG_TAG, "Going to sign up page");
                 Intent signUpIntent = new Intent(SignIn.this, Sign_Up.class);
                 startActivity(signUpIntent);
             }

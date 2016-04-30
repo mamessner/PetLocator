@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,6 +46,7 @@ public class HomePage extends Default_Activity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private static final String LOG_TAG = "HomePage";
 
     // Information for lost pets
     public static String[] lostNames = {"Boots", "Labby", "Jeeves", "Splingdo", "Flubgus",
@@ -138,6 +140,7 @@ public class HomePage extends Default_Activity {
             CustomListAdapter adapter;
             switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1: // Lost pets
+                    Log.v(LOG_TAG, "Switched to lost pets tab");
                     adapter = new CustomListAdapter(getActivity(), lostNamesList, lostImagesList, lostBreedsList);
                     list.setAdapter(adapter);
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -145,12 +148,14 @@ public class HomePage extends Default_Activity {
                             String selectedItem = lostNames[+position];
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Clicked " + selectedItem, Toast.LENGTH_SHORT).show();
+                            Log.v(LOG_TAG, "Going to generic lost pet report");
                             Intent viewLostIntent = new Intent(getActivity(), ViewLostReport.class);
                             startActivity(viewLostIntent);
                         }
                     });
                     break;
                 case 2: // Found pets
+                    Log.v(LOG_TAG, "Switched to found pets tab");
                     adapter = new CustomListAdapter(getActivity(), foundNamesList, foundImagesList, foundBreedsList);
                     list.setAdapter(adapter);
                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -158,6 +163,7 @@ public class HomePage extends Default_Activity {
                             String selectedItem = lostNames[+position];
                             Toast.makeText(getActivity().getApplicationContext(),
                                     "Clicked " + selectedItem, Toast.LENGTH_SHORT).show();
+                            Log.v(LOG_TAG, "Going to generic found pet report");
                             Intent viewFoundIntent = new Intent(getActivity(), ViewFoundReport.class);
                             startActivity(viewFoundIntent);
                         }
@@ -242,14 +248,4 @@ public class HomePage extends Default_Activity {
             return null;
         }
     }
-
-//    protected class LostPetClickListener implements AdapterView.OnItemClickListener {
-//        @Override
-//        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//            String selectedItem = lostNames[+position];
-//            Toast.makeText(getApplicationContext(), "Clicked " + selectedItem, Toast.LENGTH_SHORT).show();
-//            Intent viewLostIntent = new Intent(HomePage.this, ViewLostReport.class);
-//            startActivity(viewLostIntent);
-//        }
-//    }
 }

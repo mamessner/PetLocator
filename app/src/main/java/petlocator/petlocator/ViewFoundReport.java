@@ -30,6 +30,7 @@ public class ViewFoundReport extends Default_Activity{
     private String[] fieldHeaders = {"Name", "Color", "Breed", "Notes"};
     private String[] fieldDescriptions = {"Unknown", "Golden", "Golden Retriever",
             "He didn't have a collar but he came right up to me."};
+    private static final String LOG_TAG = "ViewFoundReport";
 
 
     @Override
@@ -37,7 +38,6 @@ public class ViewFoundReport extends Default_Activity{
         super.onCreate(savedInstanceState);
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         actionBar.setTitle("View Found Report");
-        final String TAG = "VIEW FOUND REPORT";
 
         // Gets the MapView from the XML layout and creates it
         mapView = (MapView) findViewById(R.id.map);
@@ -75,7 +75,8 @@ public class ViewFoundReport extends Default_Activity{
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked edit", Toast.LENGTH_SHORT).show();
-                Log.v(TAG, "Moving to report edit");
+                Log.v(LOG_TAG, "Moving to report found pet page.");
+                Log.v(LOG_TAG, "Data from current report would normally be automatically entered.");
                 Intent reportFoundPetIntent = new Intent(ViewFoundReport.this, ReportFoundPet.class);
                 ViewFoundReport.this.startActivity(reportFoundPetIntent);
             }
@@ -86,7 +87,7 @@ public class ViewFoundReport extends Default_Activity{
             @Override
             public void onClick(View v) {
 
-                Log.v(TAG, "Opening alert");
+                Log.v(LOG_TAG, "Opening alert");
                 Toast.makeText(getApplicationContext(), "Clicked delete", Toast.LENGTH_SHORT).show();
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewFoundReport.this);
@@ -103,7 +104,7 @@ public class ViewFoundReport extends Default_Activity{
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(getApplicationContext(), "Approved deletion", Toast.LENGTH_SHORT).show();
-                                Log.v(TAG, "Delete approved");
+                                Log.v(LOG_TAG, "Delete approved");
                                 //if this button is clicked, reroute to user profile
                                 Intent userProfileIntent = new Intent(ViewFoundReport.this, UserProfile.class);
                                 ViewFoundReport.this.startActivity(userProfileIntent);
@@ -114,7 +115,7 @@ public class ViewFoundReport extends Default_Activity{
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, cancel the dialog and do nothing
                                 Toast.makeText(getApplicationContext(), "Cancelled deletion", Toast.LENGTH_SHORT).show();
-                                Log.v(TAG, "Delete cancelled");
+                                Log.v(LOG_TAG, "Delete cancelled");
                                 dialog.cancel();
                             }
                         });

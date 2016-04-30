@@ -37,6 +37,7 @@ public class ViewLostReport extends Default_Activity {
     private MapView mapView;
     private GoogleMap map;
     private ListView list;
+    private static final String LOG_TAG = "ViewLostReport";
     private String[] fieldHeaders = {"Name", "Color", "Breed", "Notes"};
     private String[] fieldDescriptions = {"Jeeves", "Black", "Black lab",
             "Jeeves is a sweet golden with a distinctive white spot in the center of the backs of " +
@@ -46,7 +47,6 @@ public class ViewLostReport extends Default_Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final String TAG = "VIEW LOST REPORT";
         actionBar = (Toolbar) findViewById(R.id.action_bar);
         actionBar.setTitle("View Lost Report");
 
@@ -87,7 +87,8 @@ public class ViewLostReport extends Default_Activity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Clicked Edit", Toast.LENGTH_SHORT).show();
-                Log.v(TAG, "Moving to Lost Report edit");
+                Log.v(LOG_TAG, "Moving to Lost Report edit");
+                Log.v(LOG_TAG, "Data from current report would normally be transferred.");
                 Intent reportLostPetIntent = new Intent(ViewLostReport.this, ReportLostPet.class);
                 ViewLostReport.this.startActivity(reportLostPetIntent);
             }
@@ -98,7 +99,7 @@ public class ViewLostReport extends Default_Activity {
             @Override
             public void onClick(View v) {
 
-                Log.v(TAG, "Opening alert");
+                Log.v(LOG_TAG, "Opening alert");
                 Toast.makeText(getApplicationContext(), "Clicked close", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ViewLostReport.this);
 
@@ -114,7 +115,7 @@ public class ViewLostReport extends Default_Activity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, reroute to user profile
-                                Log.v(TAG, "Close approved");
+                                Log.v(LOG_TAG, "Close approved");
                                 Toast.makeText(getApplicationContext(), "Close approved", Toast.LENGTH_SHORT).show();
                                 Intent userProfileIntent = new Intent(ViewLostReport.this, UserProfile.class);
                                 ViewLostReport.this.startActivity(userProfileIntent);
@@ -125,7 +126,7 @@ public class ViewLostReport extends Default_Activity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 //if this button is clicked, cancel the dialog and do nothing
-                                Log.v(TAG, "Close rejected");
+                                Log.v(LOG_TAG, "Close rejected");
                                 Toast.makeText(getApplicationContext(), "Close rejected", Toast.LENGTH_SHORT).show();
                                 dialog.cancel();
                             }

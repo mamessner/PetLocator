@@ -89,7 +89,7 @@ public class Inbox extends Default_Activity {
         if (id == R.id.action_inbox) {
             // do nothing here
             Toast.makeText(getApplicationContext(), "Clicked inbox", Toast.LENGTH_SHORT).show();
-            Log.v(LOG_TAG, "Clicked inbox");
+            Log.v(LOG_TAG, "Not switching to inbox page because we're already here");
             return true;
         }
 
@@ -105,8 +105,6 @@ public class Inbox extends Default_Activity {
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
-        private MapView mapView;
-        private GoogleMap map;
 
         public PlaceholderFragment() {
         }
@@ -131,7 +129,7 @@ public class Inbox extends Default_Activity {
             alertCard.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    Log.v(LOG_TAG, "Touched an alert");
+                    Log.v(LOG_TAG, "Touched an alert, viewing generic found report");
                     Intent viewFoundIntent = new Intent(getActivity(), ViewFoundReport.class);
                     startActivity(viewFoundIntent);
                     return true;
@@ -142,12 +140,14 @@ public class Inbox extends Default_Activity {
             CardView thirdMessage = (CardView) rootView.findViewById(R.id.message_card3);
             switch(getArguments().getInt(ARG_SECTION_NUMBER)) {
                 case 1: // Messages tab
+                    Log.v(LOG_TAG, "Switched to messages tab");
                     alertCard.setVisibility(CardView.GONE);
                     firstMessage.setVisibility(CardView.VISIBLE);
                     secondMessage.setVisibility(CardView.VISIBLE);
                     thirdMessage.setVisibility(CardView.VISIBLE);
                     break;
                 case 2: // Alerts tab
+                    Log.v(LOG_TAG, "Switched to alerts tab");
                     firstMessage.setVisibility(CardView.GONE);
                     secondMessage.setVisibility(CardView.GONE);
                     thirdMessage.setVisibility(CardView.GONE);

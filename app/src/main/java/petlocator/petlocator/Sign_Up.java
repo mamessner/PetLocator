@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class Sign_Up extends AppCompatActivity {
 
+    private static final String LOG_TAG = "Sign_Up";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,11 +23,12 @@ public class Sign_Up extends AppCompatActivity {
 
         // Set up button
         final Button signUpButton = (Button) findViewById(R.id.sign_up_button);
+        assert signUpButton != null;
         signUpButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Toast.makeText(getApplicationContext(), "Clicked Sign Up", Toast.LENGTH_SHORT).show();
-                Log.v("Sign Up", "Sign up complete");
+                Log.v(LOG_TAG, "Going to sign in page");
                 Intent signUpIntent = new Intent(Sign_Up.this, SignIn.class);
                 Sign_Up.this.startActivity(signUpIntent);
             }

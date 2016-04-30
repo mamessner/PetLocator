@@ -24,6 +24,7 @@ public class MyReports extends Default_Activity {
     public DrawerLayout drawerLayout;
     private Toolbar actionBar;
     public CustomListAdapter reportAdapter;
+    private static final String LOG_TAG = "MyReports";
 
     public String[] reportitemname = {
             "LOST",
@@ -118,7 +119,7 @@ public class MyReports extends Default_Activity {
 
                 String selectedItem = reportitemname[+position];
                 Toast.makeText(getApplicationContext(), selectedItem, Toast.LENGTH_SHORT).show();
-                Log.v("Lost", "Starting lost report activity");
+                Log.v(LOG_TAG, "Starting generic lost report activity");
             }
         });
 

@@ -1,14 +1,19 @@
 package petlocator.petlocator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -23,6 +28,7 @@ public class ReportLostPet extends Default_Activity {
     private Toolbar actionBar;
     private MapView mapView;
     private GoogleMap map;
+    private final String LOG_TAG = "ReportLostPet";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +63,30 @@ public class ReportLostPet extends Default_Activity {
         MapsInitializer.initialize(this.getApplicationContext());
 
         // Updates the location and zoom of the MapView
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(43.1, -87.9), 10);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(37.269, -76.7103), 10);
         map.animateCamera(cameraUpdate);
+
+        // Set up buttons
+        Button submitButton = (Button) findViewById(R.id.submit_button);
+        Button browseButton = (Button) findViewById(R.id.browse_button);
+        assert submitButton != null;
+        assert browseButton != null;
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Clicked submit", Toast.LENGTH_SHORT).show();
+                Log.v(LOG_TAG, "Going to a generic lost pet report");
+                Intent viewLostIntent = new Intent(ReportLostPet.this, ViewLostReport.class);
+                startActivity(viewLostIntent);
+            }
+        });
+        browseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Clicked browse", Toast.LENGTH_SHORT).show();
+                Log.v(LOG_TAG, "Browse feature not implemented yet");
+            }
+        });
     }
 
     @Override
@@ -74,6 +102,24 @@ public class ReportLostPet extends Default_Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
     }
 
 }
